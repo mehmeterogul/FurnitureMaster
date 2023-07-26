@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree:Abstract_Resource
+public abstract class Abstract_Ore : Abstract_Resource
 {
     public Item item;
 
@@ -16,9 +16,5 @@ public class Tree:Abstract_Resource
     void Update()
     {
 
-    }
-    public override void GatherResource()
-    {
-        
     }
 }
