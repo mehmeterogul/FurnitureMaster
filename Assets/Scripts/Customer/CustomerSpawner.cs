@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
@@ -9,7 +10,7 @@ public class CustomerSpawner : MonoBehaviour
     [SerializeField] private List<Transform> _leavePointList;
     [SerializeField] private List<Transform> _queuePointList;
     private int _maxCustomerCount;
-    private List<Transform> _customersOnQueue = new List<Transform>();
+    [SerializeField] private List<Transform> _customersOnQueue = new List<Transform>();
 
     private void Start()
     {
@@ -45,17 +46,37 @@ public class CustomerSpawner : MonoBehaviour
 
     private void DiscardFirstCustomer()
     {
-        Customer firstCustomer = _customersOnQueue[0].GetComponent<Customer>();
+        if (GetCustomerCountOnQueue() == 0)
+            return;
+
+        Transform firstCustomerTransform = _customersOnQueue[0];
+        Customer firstCustomer = firstCustomerTransform.GetComponent<Customer>();
         int leavePositionIndex = Random.Range(0, _leavePointList.Count);
         firstCustomer.SetTargetPosition(_leavePointList[leavePositionIndex].position);
         StartCoroutine(firstCustomer.HideCoroutine());
         SortCustomerQueue();
-        // Invoke("SpawnCustomer", 2.8f);
     }
 
     private void SortCustomerQueue()
     {
-        
+        List<Transform> customerList = _customersOnQueue.ToList();
+        _customersOnQueue.Clear();
+
+        int customerIndex = 0;
+        foreach (var customerTransform in customerList)
+        {
+            if (customerIndex == 0)
+            {
+                customerIndex++;
+                continue;
+            }
+            _customersOnQueue.Add(customerTransform);
+
+            Customer customer = customerTransform.GetComponent<Customer>();
+            customer.SetTargetPosition(GetTargetPosition());    
+        }
+
+        SpawnCustomer();
     }
 
     private Vector3 GetTargetPosition()
