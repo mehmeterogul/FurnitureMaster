@@ -19,6 +19,6 @@ public class Tree:Abstract_Resource
     }
     public override void GatherResource()
     {
-        
+        _player.Cut(this);
     }
 }

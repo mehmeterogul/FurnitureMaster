@@ -15,6 +15,6 @@ public abstract class Abstract_Ore : Abstract_Resource
     // Update is called once per frame
     void Update()
     {
-
+        _player.Dig(this);
     }
 }

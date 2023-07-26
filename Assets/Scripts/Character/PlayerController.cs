@@ -55,11 +55,11 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-    void Dig(Abstract_Resource resource)
+    public void Dig(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Digging;
     }
-    void Cut(Abstract_Resource resource)
+    public void Cut(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Cutting;
     }
