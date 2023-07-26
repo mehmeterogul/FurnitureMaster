@@ -4582,7 +4582,7 @@ GameObject:
   - component: {fileID: 744966808885125633}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4600,6 +4600,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSpeed: 7
+  CutPeriod: 1
+  DigPeriod: 1
+  CutPower: 1
+  DigPower: 1
 --- !u!143 &744966808885125632
 CharacterController:
   m_ObjectHideFlags: 0

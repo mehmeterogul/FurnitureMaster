@@ -10,6 +10,7 @@ public class CraftTable : MonoBehaviour
     [SerializeField] private float maxFillValue = 100f;
     [SerializeField] private float currentFillValue = 0f;
     private bool canDecrease = false;
+    private bool canTrigger = false;
 
     void Update()
     {
@@ -28,12 +29,13 @@ public class CraftTable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canDecrease = false;
+            canTrigger = true;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && canTrigger)
         {
             currentFillValue += imageFillRate;
             UpdateCircleSpriteFillAmounth();
@@ -42,6 +44,7 @@ public class CraftTable : MonoBehaviour
             {
                 // CRAFT THE ORDER
 
+                canTrigger = false;
                 currentFillValue = 0;
                 UpdateCircleSpriteFillAmounth();
             }
@@ -52,6 +55,7 @@ public class CraftTable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            canTrigger = true;
             canDecrease = true;
         }
     }
