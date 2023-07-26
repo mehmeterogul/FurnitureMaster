@@ -7,17 +7,28 @@ public class OrderController : MonoBehaviour
 {
     [SerializeField] private OrderSO _currentOrder;
     [SerializeField] private Image _orderIcon;
+    private bool _hasOrderTaken;
 
+    public void SetOrder()
+    {
+
+    }
+
+    /*
     public void SetOrder(OrderSO order)
     {
         _currentOrder = order;
         _orderIcon.sprite = order.OrderIcon;
     }
+    */
 
-    public void CheckOrderCraftable()
+    public void CheckCanDeliver()
     {
-        // Check resources
-        // If resources enough, then call DiscardFirstCustomer in CustomerSpawner script
-        // if not, do nothing
+        // Check order ready
+    }
+
+    public bool HasOrderTaken()
+    {
+        return _hasOrderTaken;
     }
 }

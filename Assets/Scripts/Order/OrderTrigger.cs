@@ -16,7 +16,10 @@ public class OrderTrigger : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            _orderController.CheckOrderCraftable();
+            if (_orderController.HasOrderTaken())
+                _orderController.SetOrder();
+            else
+                _orderController.CheckCanDeliver();
         }
     }
 }
