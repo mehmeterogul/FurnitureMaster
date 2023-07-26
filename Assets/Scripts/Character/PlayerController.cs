@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float PlayerSpeed = 2.0f;
-    public float CutPeriod = 1.0f;
-    public float DigPeriod = 1.0f;
+    public float PlayerSpeed = 2f;
+    public float CutPeriod = 1f;
+    public float DigPeriod = 1f;
     public int CutPower = 1;
     public int DigPower = 1;
 
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     void Move()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _controller.Move(move * Time.deltaTime * PlayerSpeed);
 
         if (move != Vector3.zero)

@@ -8,9 +8,9 @@ public abstract class Abstract_Resource : MonoBehaviour
     public int Health = 10;
     public int Amount = 10;
 
-    protected PlayerController _player;
-    protected Game_Manager manager;
-    protected Coroutine gatherCoroutine;
+    public PlayerController _player;
+    public Game_Manager manager;
+    public Coroutine gatherCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -31,25 +31,23 @@ public abstract class Abstract_Resource : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(_player.CutPower.ToString());
         _player.GatherResource(this);
     }
 
-    /*
+    
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Ontrigger");
         GatherResource();
     }
-    */
+    
     private void OnCollisionExit(Collision collision)
     {
         _player.LeaveGathering();
     }
 
-    public void TakeHit(int amount)
+    public void TakeHit(int damage)
     {     
-        Health -=amount;
+        Health -= damage;
         Debug.Log("hp:" + Health.ToString());
         CheckDestroy();
     }
