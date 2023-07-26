@@ -6,32 +6,21 @@ public abstract class Abstract_Tree:Abstract_Resource
 {
     public Item item;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public override void GatherResource()
     {
         if (gatherCoroutine == null)
         {
-            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());
-            TakeHit(_player.CutPower);
+            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());       
         }
     }
     public IEnumerator GatherResourceCoroutine()
     {
         while (true)
-        {
-            GatherResource();
+        {     
+            TakeHit(_player.CutPower);
             yield return new WaitForSeconds(_player.CutPeriod);
         }
     }
+
 
 }
