@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     public int CutPower = 1;
     public int DigPower = 1;
 
+    public Status status;
+
     private Vector3 _playerVelocity;
     private CharacterController _controller;
-    private Status status;
 
 
     private void Start()

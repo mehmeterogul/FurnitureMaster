@@ -14,6 +14,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     public Coroutine gatherCoroutine;
     public Item item;
 
+    public bool _playerLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -38,17 +39,18 @@ public abstract class Abstract_Resource : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        _playerLeft = false;
         _player.GatherResource(this);
     }
 
-    
     private void OnTriggerStay(Collider other)
     {
+        _playerLeft = false;
         GatherResource();
     }
-    
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
+        _playerLeft = true;
         _player.LeaveGathering();
     }
 

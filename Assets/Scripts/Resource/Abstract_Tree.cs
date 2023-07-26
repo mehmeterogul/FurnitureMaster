@@ -15,8 +15,15 @@ public abstract class Abstract_Tree:Abstract_Resource
     public IEnumerator GatherResourceCoroutine()
     {
         while (true)
-        {     
+        {    
             TakeHit(_player.CutPower);
+            if (_playerLeft)
+            {
+                // Player left, cancel the coroutine
+                gatherCoroutine = null;
+                yield break;
+            }
+
             yield return new WaitForSeconds(_player.CutPeriod);
         }
     }
