@@ -5,17 +5,18 @@ using UnityEngine;
 
 public abstract class Abstract_Resource : MonoBehaviour
 {
-    public int Health = 5;
-    public int Amount = 5;
+    public int Health = 10;
+    public int Amount = 10;
 
-    public PlayerController _player;
-    public GameManager manager;
+    protected PlayerController _player;
+    protected Game_Manager manager;
+    protected Coroutine gatherCoroutine;
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameManager.Instance;
-        _player = manager.player;
+        manager = Game_Manager.Instance;
+        _player = manager.Player;
     }
 
     // Update is called once per frame
@@ -23,17 +24,33 @@ public abstract class Abstract_Resource : MonoBehaviour
     {
         
     }
-    public void OnCollisionEnter(Collision collision)
-    {
-        GatherResource();
-
-    }
-
+    //Abstracts Methods
     public abstract void GatherResource();
 
-    public void TakeHit()
+    //Common Methods
+    
+    private void OnTriggerEnter(Collider other)
     {
-        Health--;
+        Debug.Log(_player.CutPower.ToString());
+        _player.GatherResource(this);
+    }
+
+    /*
+    private void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Ontrigger");
+        GatherResource();
+    }
+    */
+    private void OnCollisionExit(Collision collision)
+    {
+        _player.LeaveGathering();
+    }
+
+    public void TakeHit(int amount)
+    {     
+        Health -=amount;
+        Debug.Log("hp:" + Health.ToString());
         CheckDestroy();
     }
     public void CheckDestroy()

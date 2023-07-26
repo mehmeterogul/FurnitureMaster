@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public GameManager gameManager;
     public Tree tree;
 
     // Start is called before the first frame update

@@ -6,6 +6,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float PlayerSpeed = 2.0f;
+    public float CutPeriod = 1.0f;
+    public float DigPeriod = 1.0f;
+    public int CutPower = 1;
+    public int DigPower = 1;
 
     private Vector3 _playerVelocity;
     private CharacterController _controller;
@@ -44,23 +48,27 @@ public class PlayerController : MonoBehaviour
         }
         _controller.Move(_playerVelocity * Time.deltaTime);
     }
-    void GatherResource(Abstract_Resource resource)
+    public void GatherResource(Abstract_Resource resource)
     {
         if (status.Gather_Stat == Status.GatherStatus.NotGathering)
         {
-            if (resource is Tree)
+            if (resource is Abstract_Tree)
                 Cut(resource);
             else
                 Dig(resource);
-
         }
     }
     public void Dig(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Digging;
+
     }
     public void Cut(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Cutting;
+    }
+    public void LeaveGathering()
+    {
+        status.Gather_Stat = Status.GatherStatus.NotGathering;
     }
 }

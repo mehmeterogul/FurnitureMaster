@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Abstract_Ore : Abstract_Resource
+public abstract class Abstract_Tree:Abstract_Resource
 {
     public Item item;
 
@@ -15,14 +15,14 @@ public abstract class Abstract_Ore : Abstract_Resource
     // Update is called once per frame
     void Update()
     {
-        _player.Dig(this);
+
     }
     public override void GatherResource()
     {
         if (gatherCoroutine == null)
         {
             gatherCoroutine = StartCoroutine(GatherResourceCoroutine());
-            TakeHit(_player.DigPower);
+            TakeHit(_player.CutPower);
         }
     }
     public IEnumerator GatherResourceCoroutine()
@@ -33,4 +33,5 @@ public abstract class Abstract_Ore : Abstract_Resource
             yield return new WaitForSeconds(_player.CutPeriod);
         }
     }
+
 }

@@ -15,8 +15,5 @@ public class IronOre : Abstract_Ore
     {
         
     }
-    public override void GatherResource()
-    {
-
-    }
+   
 }
