@@ -4,7 +4,5 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public Tree tree;
-
-  
+      
 }

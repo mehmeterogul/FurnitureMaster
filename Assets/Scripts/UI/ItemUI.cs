@@ -35,15 +35,16 @@ public class ItemUI: MonoBehaviour
         IconImage.color = _darkGray;
         AmountText.SetText(string.Empty);
     }
-    void Increase()
+    public void Increase(int income)
     {
         if (_isDormant)
         {
-            _darkGray = Color.white;
+            IconImage.color = Color.white;
+            _isDormant = false;
         }
         else
         {
-            amount++;
+            amount+= income;
             AmountText.SetText(amount.ToString());
         }
     }

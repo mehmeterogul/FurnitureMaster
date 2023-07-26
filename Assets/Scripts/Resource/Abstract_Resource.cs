@@ -9,14 +9,16 @@ public abstract class Abstract_Resource : MonoBehaviour
     public int Amount = 10;
 
     public PlayerController _player;
-    public Game_Manager manager;
+    public Inventory _inv;
+    public Game_Manager _manager;
     public Coroutine gatherCoroutine;
+    public Item item;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        manager = Game_Manager.Instance;
-        _player = manager.Player;
+        InitializeComponents();
     }
 
     // Update is called once per frame
@@ -28,7 +30,12 @@ public abstract class Abstract_Resource : MonoBehaviour
     public abstract void GatherResource();
 
     //Common Methods
-    
+    private void InitializeComponents()
+    {
+        _manager = Game_Manager.Instance;
+        _player = _manager.Player_Ref;
+        _inv = _manager.Inventory_Ref;
+    }
     private void OnTriggerEnter(Collider other)
     {
         _player.GatherResource(this);
@@ -48,6 +55,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     public void TakeHit(int damage)
     {     
         Health -= damage;
+        _inv.IncreaseResourceItem(item,damage);
         Debug.Log("hp:" + Health.ToString());
         CheckDestroy();
     }

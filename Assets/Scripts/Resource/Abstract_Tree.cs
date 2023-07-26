@@ -4,13 +4,12 @@ using UnityEngine;
 
 public abstract class Abstract_Tree:Abstract_Resource
 {
-    public Item item;
 
     public override void GatherResource()
     {
         if (gatherCoroutine == null)
         {
-            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());       
+            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());
         }
     }
     public IEnumerator GatherResourceCoroutine()

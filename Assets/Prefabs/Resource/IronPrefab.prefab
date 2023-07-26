@@ -508,6 +508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147011872427262780}
   - component: {fileID: 3937959419757564286}
+  - component: {fileID: 5167392466605673847}
   m_Layer: 0
   m_Name: IronPrefab
   m_TagString: Untagged
@@ -524,7 +525,7 @@ Transform:
   m_GameObject: {fileID: 5315534259743928102}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.2713081, z: -0, w: 0.96249264}
-  m_LocalPosition: {x: -2.031, y: 0, z: -0.098}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -552,7 +553,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   Amount: 5
+  _player: {fileID: 0}
+  _inv: {fileID: 0}
+  _manager: {fileID: 0}
   item: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
+--- !u!65 &5167392466605673847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315534259743928102}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.3637886, y: 1.810574, z: 5.9863567}
+  m_Center: {x: -0.8364253, y: 0.002710104, z: 2.307118}
 --- !u!1 &8282229903026427958
 GameObject:
   m_ObjectHideFlags: 0
