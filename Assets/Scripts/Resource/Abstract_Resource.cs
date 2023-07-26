@@ -7,6 +7,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     public int Health = 5;
     public int Amount = 5;
 
+    private PlayerController _player;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,10 @@ public abstract class Abstract_Resource : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+       
+
     }
 }

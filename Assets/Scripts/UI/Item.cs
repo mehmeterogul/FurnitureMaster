@@ -7,5 +7,4 @@ public class Item : ScriptableObject
 {
     public string Item_name;
     public Sprite Icon;
-    public int amount;
 }
