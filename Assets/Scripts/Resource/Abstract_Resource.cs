@@ -27,8 +27,14 @@ public abstract class Abstract_Resource : MonoBehaviour
     {
         
     }
-    //Abstracts Methods
-    public abstract void GatherResource();
+    public void GatherResource()
+    {
+        if (gatherCoroutine == null)
+        {
+            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());
+        }
+    }
+    public abstract IEnumerator GatherResourceCoroutine();
 
     //Common Methods
     private void InitializeComponents()

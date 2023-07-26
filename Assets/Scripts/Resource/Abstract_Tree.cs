@@ -4,18 +4,10 @@ using UnityEngine;
 
 public abstract class Abstract_Tree:Abstract_Resource
 {
-
-    public override void GatherResource()
-    {
-        if (gatherCoroutine == null)
-        {
-            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());
-        }
-    }
-    public IEnumerator GatherResourceCoroutine()
+    public override IEnumerator GatherResourceCoroutine()
     {
         while (true)
-        {    
+        {
             TakeHit(_player.CutPower);
             if (_playerLeft)
             {

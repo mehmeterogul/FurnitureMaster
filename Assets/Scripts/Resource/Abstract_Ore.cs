@@ -4,18 +4,18 @@ using UnityEngine;
 
 public abstract class Abstract_Ore : Abstract_Resource
 {
-    public override void GatherResource()
-    {
-        if (gatherCoroutine == null)
-        {
-            gatherCoroutine = StartCoroutine(GatherResourceCoroutine());
-        }
-    }
-    public IEnumerator GatherResourceCoroutine()
+    public override IEnumerator GatherResourceCoroutine()
     {
         while (true)
         {
-            TakeHit(_player.CutPower);
+            TakeHit(_player.DigPower);
+            if (_playerLeft)
+            {
+                // Player left, cancel the coroutine
+                gatherCoroutine = null;
+                yield break;
+            }
+
             yield return new WaitForSeconds(_player.DigPeriod);
         }
     }
