@@ -15,10 +15,7 @@ public class CustomerSpawner : MonoBehaviour
     private void Start()
     {
         _maxCustomerCount = _queuePointList.Count;
-
-        SpawnCustomer();
-        Invoke("SpawnCustomer", 1.5f);
-        Invoke("SpawnCustomer", 2.8f);
+        StartCoroutine(SpawnMaxCustomerCoroutine());
     }
 
     private void Update()
@@ -26,6 +23,17 @@ public class CustomerSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DiscardFirstCustomer();
+        }
+    }
+
+    private IEnumerator SpawnMaxCustomerCoroutine()
+    {
+        SpawnCustomer();
+
+        for (int i = 1; i < _maxCustomerCount; i++)
+        {
+            yield return new WaitForSeconds(1.5f);
+            SpawnCustomer();
         }
     }
 
@@ -84,20 +92,8 @@ public class CustomerSpawner : MonoBehaviour
         int currentCustomerCount = GetCustomerCountOnQueue() - 1;
         Vector3 targetPos = Vector3.zero;
 
-        switch(currentCustomerCount)
-        {
-            default:
-            case 0:
-                targetPos = _queuePointList[0].position;
-                break;
-            case 1:
-                targetPos = _queuePointList[1].position;
-                break;
-            case 2:
-                targetPos = _queuePointList[2].position;
-                break;
-
-        }
+        if(currentCustomerCount >= 0)
+            targetPos = _queuePointList[currentCustomerCount].position;
 
         return targetPos;
     }
