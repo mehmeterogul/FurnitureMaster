@@ -507,8 +507,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147011872427262780}
+  - component: {fileID: 3937959419757564286}
   m_Layer: 0
-  m_Name: Iron
+  m_Name: IronPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,6 +538,21 @@ Transform:
   - {fileID: 6291295535132947623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 31.484, z: 0}
+--- !u!114 &3937959419757564286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5315534259743928102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c3349a9cc672940bb037e2126aa328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 5
+  Amount: 5
+  item: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
 --- !u!1 &8282229903026427958
 GameObject:
   m_ObjectHideFlags: 0
