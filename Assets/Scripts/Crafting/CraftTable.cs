@@ -88,4 +88,9 @@ public class CraftTable : MonoBehaviour
     {
         return _hasOrderCrafted;
     }
+
+    public void ClearCraftedOrder()
+    {
+        _hasOrderCrafted = false;
+    }
 }

@@ -49,6 +49,7 @@ public class CustomerSpawner : MonoBehaviour
 
         if(customerCount == 0)
         {
+            customer.SetIsNextCustomer(true);
             customer.OnCustomerArrived += Customer_OnCustomerArrived;
         }
 
@@ -93,6 +94,7 @@ public class CustomerSpawner : MonoBehaviour
             customer.SetTargetPosition(GetTargetPosition());
             if (customerIndex == 1)
             {
+                customer.SetIsNextCustomer(true);
                 customer.OnCustomerArrived += Customer_OnCustomerArrived;
             }
         }

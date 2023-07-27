@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class RequiredResourcesDictionary
 {
-    public Item abstractResource;
+    public Item resource;
     public int amount;
 }

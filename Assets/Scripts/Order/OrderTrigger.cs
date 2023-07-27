@@ -32,6 +32,7 @@ public class OrderTrigger : MonoBehaviour
             {
                 OrderSO currentOrder = _orderController.GetCurrentOrder();
                 _craftTable.ShowOrderOnCraftTable(currentOrder);
+                _orderController.CloseCanvas();
             }
         }
     }

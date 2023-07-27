@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class OrderController : MonoBehaviour
 {
     private CustomerSpawner _customerSpawner;
+    private CraftTable _craftTable;
     [SerializeField] private OrderSO _currentOrder;
     [SerializeField] private Image _orderIcon;
     [SerializeField] private GameObject _orderCanvas;
@@ -16,6 +17,10 @@ public class OrderController : MonoBehaviour
         _customerSpawner = FindObjectOfType<CustomerSpawner>();
         if (!_customerSpawner)
             Debug.LogError("Assign CustomerSpawner object!");
+
+        _craftTable = FindObjectOfType<CraftTable>();
+        if (!_craftTable)
+            Debug.LogError("Assign CraftTable object!");
     }
 
     public void ShowNextOrder()
@@ -35,10 +40,11 @@ public class OrderController : MonoBehaviour
     {
         // Check order ready
 
-        // if can
+        // if so
         _orderCanvas.SetActive(false);
         _hasOrderTaken = false;
         _customerSpawner.DiscardFirstCustomer();
+        _craftTable.ClearCraftedOrder();
     }
 
     public bool HasOrderTaken()
@@ -49,5 +55,10 @@ public class OrderController : MonoBehaviour
     public OrderSO GetCurrentOrder()
     {
         return _currentOrder;
+    }
+
+    public void CloseCanvas()
+    {
+        _orderCanvas.SetActive(false);
     }
 }
