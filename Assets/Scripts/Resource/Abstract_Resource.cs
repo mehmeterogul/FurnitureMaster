@@ -12,7 +12,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     public Inventory _inv;
     public Game_Manager _manager;
     public Coroutine gatherCoroutine;
-    public Item item;
+    public Item output_item;
 
     public bool _playerLeft;
 
@@ -22,11 +22,6 @@ public abstract class Abstract_Resource : MonoBehaviour
         InitializeComponents();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void GatherResource()
     {
         if (gatherCoroutine == null)
@@ -63,7 +58,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     public void TakeHit(int damage)
     {     
         Health -= damage;
-        _inv.IncreaseResourceItem(item,damage);
+        _inv.IncreaseResourceItem(output_item,damage);
         Debug.Log("hp:" + Health.ToString());
         CheckDestroy();
     }

@@ -48,4 +48,11 @@ public class ItemUI: MonoBehaviour
             AmountText.SetText(amount.ToString());
         }
     }
+    public void Decrease(int income)
+    {
+        
+        amount -= income;
+        AmountText.SetText(amount.ToString());
+        
+    }
 }

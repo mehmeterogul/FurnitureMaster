@@ -37,6 +37,16 @@ public class Inventory : MonoBehaviour
         }
 
     }
+    public void DecreaseResourceItem(Item item, int amount)
+    {
+        // Check if the item already exists in the list
+        ItemUI existingItemUI = ResourceItems.Find(itemUI => itemUI.Properties == item);
+        if (existingItemUI != null)
+        {
+            // If the item exists, increase its amount
+            existingItemUI.Decrease(amount);
+        }
+    }
     public void IncreaseMaterialItem(Item item, int amount)
     {
         // Check if the item already exists in the list
@@ -47,6 +57,23 @@ public class Inventory : MonoBehaviour
             existingItemUI.Increase(amount);
         }
 
+    }
+    public void DecreaseMaterialItem(Item item, int amount)
+    {
+        // Check if the item already exists in the list
+        ItemUI existingItemUI = MaterialItems.Find(itemUI => itemUI.Properties == item);
+        if (existingItemUI != null)
+        {
+            // If the item exists, increase its amount
+            existingItemUI.Increase(amount);
+        }
+
+    }
+
+    public int GetAmount(Item item)
+    {
+        ItemUI existingItemUI = MaterialItems.Find(itemUI => itemUI.Properties == item);
+        return existingItemUI.amount;
     }
 
 
