@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-      
+    public List<ResourcePrefabSO> ResourcePrefabs;
+    void Start()
+    {
+       
+    }
+
 }

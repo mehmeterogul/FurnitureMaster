@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourSpawner : MonoBehaviour
+public class ResourceSpawner : MonoBehaviour
 {
-    public List<GameObject> ResourcePrefabs;
+    private List<ResourcePrefabSO> _resourcePrefabs;
     private List<Transform> _spawnTransforms;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _resourcePrefabs = Game_Manager.Instance.ResourceManager_Ref.ResourcePrefabs;
+
     }
 
     // Update is called once per frame
