@@ -3670,6 +3670,7 @@ MonoBehaviour:
   - {fileID: 1019789935}
   - {fileID: 299144177}
   - {fileID: 1779779379}
+  moneyText: {fileID: 692083897}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

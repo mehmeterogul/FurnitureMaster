@@ -71,7 +71,6 @@ public class CustomerSpawner : MonoBehaviour
         firstCustomer.SetTargetPosition(_leavePointList[leavePositionIndex].position);
         StartCoroutine(firstCustomer.HideCoroutine());
         firstCustomer.OnCustomerArrived -= Customer_OnCustomerArrived;
-        Game_Manager.Instance.Player_Ref.HideCraftedObject();
         SortCustomerQueue();
     }
 

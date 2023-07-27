@@ -24,7 +24,7 @@ public class OrderTrigger : MonoBehaviour
 
         if (_craftTable.HasOrderCrafted())
         {
-            _orderController.CheckCanDeliver();
+            _orderController.DeliverOrder();
         }
         else
         {

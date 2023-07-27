@@ -125,4 +125,9 @@ public class CraftTable : MonoBehaviour
     {
         _hasOrderCrafted = false;
     }
+
+    public OrderSO GetCurrentOrder()
+    {
+        return _currentOrder;
+    }
 }

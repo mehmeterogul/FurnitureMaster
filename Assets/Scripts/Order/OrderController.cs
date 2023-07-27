@@ -52,15 +52,17 @@ public class OrderController : MonoBehaviour
         _orderCanvas.SetActive(true);
     }
 
-    public void CheckCanDeliver()
+    public void DeliverOrder()
     {
-        // Check order ready
-
-        // if so
+        OrderSO currentOrder = _craftTable.GetCurrentOrder();
+        Inventory inventory = FindObjectOfType<Inventory>();
+        inventory.IncreaseMoney(currentOrder.OrderPayment);
         _orderCanvas.SetActive(false);
+        _orderIcon.sprite = null;
         _hasOrderTaken = false;
         _customerSpawner.DiscardFirstCustomer();
         _craftTable.ClearCraftedOrder();
+        Game_Manager.Instance.Player_Ref.HideCraftedObject();
     }
 
     public bool HasOrderTaken()

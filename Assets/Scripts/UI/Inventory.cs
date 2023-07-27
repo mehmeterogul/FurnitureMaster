@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -11,9 +12,13 @@ public class Inventory : MonoBehaviour
     private PlayerController _player;
     private Game_Manager _manager;
 
+    private int _moneyAmount;
+    public TextMeshProUGUI moneyText;
+
     private void Start()
     {
         InitializeComponents();
+        UpdateMoneyText();
     }
 
     void Update()
@@ -63,4 +68,26 @@ public class Inventory : MonoBehaviour
             return false;
     }
 
+    public void IncreaseMoney(int amount)
+    {
+        _moneyAmount += amount;
+        UpdateMoneyText();
+    }
+
+    public void DecreaseMoney(int amount)
+    {
+        _moneyAmount -= amount;
+        if(_moneyAmount < 0) _moneyAmount = 0;
+        UpdateMoneyText();
+    }
+
+    private void UpdateMoneyText()
+    {
+        moneyText.text = _moneyAmount.ToString();
+    }
+
+    public int GetMoneyAmount()
+    {
+        return _moneyAmount;
+    }
 }
