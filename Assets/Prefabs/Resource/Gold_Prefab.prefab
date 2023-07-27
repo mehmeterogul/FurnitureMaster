@@ -743,5 +743,5 @@ MonoBehaviour:
   _player: {fileID: 0}
   _inv: {fileID: 0}
   _manager: {fileID: 0}
-  item: {fileID: 11400000, guid: d38b6aff37d33074eae57ef3da2a09ed, type: 2}
+  output_item: {fileID: 11400000, guid: d38b6aff37d33074eae57ef3da2a09ed, type: 2}
   _playerLeft: 0

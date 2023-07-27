@@ -556,7 +556,8 @@ MonoBehaviour:
   _player: {fileID: 0}
   _inv: {fileID: 0}
   _manager: {fileID: 0}
-  item: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
+  output_item: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
+  _playerLeft: 0
 --- !u!65 &5167392466605673847
 BoxCollider:
   m_ObjectHideFlags: 0

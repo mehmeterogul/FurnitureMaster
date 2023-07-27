@@ -42,11 +42,9 @@ public class ItemUI: MonoBehaviour
             IconImage.color = Color.white;
             _isDormant = false;
         }
-        else
-        {
-            amount+= income;
-            AmountText.SetText(amount.ToString());
-        }
+        amount+= income;
+        AmountText.SetText(amount.ToString());
+        
     }
     public void Decrease(int income)
     {
