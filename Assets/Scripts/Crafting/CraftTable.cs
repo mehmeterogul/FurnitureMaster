@@ -16,8 +16,6 @@ public class CraftTable : MonoBehaviour
     [SerializeField] private Image _orderImage;
     private OrderSO _currentOrder;
 
-    public Transform orderPrefab;
-
     private void Start()
     {
         _orderImage.gameObject.SetActive(false);
@@ -97,7 +95,7 @@ public class CraftTable : MonoBehaviour
 
                 // CRAFT ORDER HERE
                 _hasOrderCrafted = true;
-                Game_Manager.Instance.Player_Ref.HoldCraftedObject(orderPrefab);
+                Game_Manager.Instance.Player_Ref.HoldCraftedObject(_currentOrder.OrderPrefab);
                 DecreaseResources();
 
                 _canTrigger = false;

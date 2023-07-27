@@ -47,9 +47,9 @@ public class OrderController : MonoBehaviour
 
     public void SetOrder(OrderSO order)
     {
-        _orderCanvas.SetActive(true);
-        _currentOrder = order;
         _orderIcon.sprite = order.OrderIcon;
+        _currentOrder = order;
+        _orderCanvas.SetActive(true);
     }
 
     public void CheckCanDeliver()
