@@ -9,7 +9,7 @@ public class Refinery : MonoBehaviour
 {
     public float ConversionSpeed;
     public int ConversionPower;
-    public Item input_item;
+    public List<Item> input_items;
     public Item output_item;
 
     private PlayerController _player;
@@ -31,10 +31,12 @@ public class Refinery : MonoBehaviour
     
     public void Refine()
     {
-        if (!_inv.CheckAnyLeft(input_item))
-            return;
+        foreach(Item item in input_items){
+            if (!_inv.CheckAnyLeft(item))
+                return;
 
-        _inv.DecreaseItem(input_item, ConversionPower);
+            _inv.DecreaseItem(item, ConversionPower);        
+        }
         _inv.IncreaseItem(output_item, ConversionPower);
 
     }
