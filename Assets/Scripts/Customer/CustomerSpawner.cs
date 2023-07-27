@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
+    private OrderController _orderController;
+
     [SerializeField] private CustomerPool _customerPool;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private List<Transform> _leavePointList;
@@ -14,16 +16,15 @@ public class CustomerSpawner : MonoBehaviour
 
     private void Start()
     {
+        _orderController = FindObjectOfType<OrderController>();
+        if (!_orderController)
+        {
+            Debug.LogError("Assign OrderController object!");
+            return;
+        }
+
         _maxCustomerCount = _queuePointList.Count;
         StartCoroutine(SpawnMaxCustomerCoroutine());
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DiscardFirstCustomer();
-        }
     }
 
     private IEnumerator SpawnMaxCustomerCoroutine()
@@ -39,11 +40,17 @@ public class CustomerSpawner : MonoBehaviour
 
     private void SpawnCustomer()
     {
-        if(GetCustomerCountOnQueue() >= _maxCustomerCount)
+        int customerCount = GetCustomerCountOnQueue();
+        if (customerCount >= _maxCustomerCount)
             return;
 
         Transform newCustomerTransform = _customerPool.GetNextCustomer();
         Customer customer = newCustomerTransform.GetComponent<Customer>();
+
+        if(customerCount == 0)
+        {
+            customer.OnCustomerArrived += Customer_OnCustomerArrived;
+        }
 
         newCustomerTransform.gameObject.SetActive(true);
         newCustomerTransform.transform.position = _spawnPoint.position;
@@ -52,7 +59,7 @@ public class CustomerSpawner : MonoBehaviour
         customer.SetTargetPosition(GetTargetPosition());
     }
 
-    private void DiscardFirstCustomer()
+    public void DiscardFirstCustomer()
     {
         if (GetCustomerCountOnQueue() == 0)
             return;
@@ -62,6 +69,8 @@ public class CustomerSpawner : MonoBehaviour
         int leavePositionIndex = Random.Range(0, _leavePointList.Count);
         firstCustomer.SetTargetPosition(_leavePointList[leavePositionIndex].position);
         StartCoroutine(firstCustomer.HideCoroutine());
+        firstCustomer.OnCustomerArrived -= Customer_OnCustomerArrived;
+
         SortCustomerQueue();
     }
 
@@ -81,7 +90,11 @@ public class CustomerSpawner : MonoBehaviour
             _customersOnQueue.Add(customerTransform);
 
             Customer customer = customerTransform.GetComponent<Customer>();
-            customer.SetTargetPosition(GetTargetPosition());    
+            customer.SetTargetPosition(GetTargetPosition());
+            if (customerIndex == 1)
+            {
+                customer.OnCustomerArrived += Customer_OnCustomerArrived;
+            }
         }
 
         SpawnCustomer();
@@ -101,5 +114,10 @@ public class CustomerSpawner : MonoBehaviour
     private int GetCustomerCountOnQueue()
     {
         return _customersOnQueue.Count;
+    }
+
+    private void Customer_OnCustomerArrived()
+    {
+        _orderController.ShowNextOrder();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,7 @@ public class Customer : MonoBehaviour
 {
     private Vector3 _targetPosition;
     private bool _canMove;
+    public Action OnCustomerArrived;
 
     // Update is called once per frame
     void Update()
@@ -23,9 +25,14 @@ public class Customer : MonoBehaviour
         float _moveSpeed = 5f;
         float stoppingDistance = 0.1f;
         if (Vector3.Distance(transform.position, _targetPosition) >= stoppingDistance)
+        {
             transform.position += moveDirection * _moveSpeed * Time.deltaTime;
+        }
         else
+        {
             _canMove = false;
+            OnCustomerArrived?.Invoke();
+        }
     }
 
     public void SetTargetPosition(Vector3 targetPosition)

@@ -5,47 +5,66 @@ using UnityEngine.UI;
 
 public class CraftTable : MonoBehaviour
 {
-    [SerializeField] private Image fillImage;
-    [SerializeField] private float imageFillRate = 1f;
-    [SerializeField] private float maxFillValue = 100f;
-    [SerializeField] private float currentFillValue = 0f;
-    private bool canDecrease = false;
-    private bool canTrigger = false;
+    [SerializeField] private Image _fillImage;
+    [SerializeField] private float _imageFillRate = 1f;
+    [SerializeField] private float _maxFillValue = 100f;
+    [SerializeField] private float _currentFillValue = 0f;
+    private bool _canDecrease = false;
+    private bool _canTrigger = false;
+    private bool _canCraft = false;
+    private bool _hasOrderCrafted = false;
+    [SerializeField] private Image _orderImage;
+
+    private void Start()
+    {
+        _orderImage.gameObject.SetActive(false);
+    }
 
     void Update()
     {
-        if (canDecrease)
+        if (_canDecrease)
         {
-            if (fillImage.fillAmount > 0)
+            if (_fillImage.fillAmount > 0)
             {
-                currentFillValue -= (imageFillRate * 3);
+                _currentFillValue -= (_imageFillRate * 3);
                 UpdateCircleSpriteFillAmounth();
             }
         }
+    }
+
+    public void ShowOrderOnCraftTable(OrderSO order)
+    {
+        _canCraft = true;
+        _hasOrderCrafted = false;
+        _orderImage.gameObject.SetActive(true);
+        _orderImage.sprite = order.OrderIcon;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            canDecrease = false;
-            canTrigger = true;
+            _canDecrease = false;
+            _canTrigger = true;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && canTrigger)
+        if (other.gameObject.CompareTag("Player") && _canTrigger && _canCraft)
         {
-            currentFillValue += imageFillRate;
+            _currentFillValue += _imageFillRate;
             UpdateCircleSpriteFillAmounth();
 
-            if (currentFillValue == maxFillValue)
+            if (_currentFillValue == _maxFillValue)
             {
-                // CRAFT THE ORDER
+                _orderImage.gameObject.SetActive(false);
+                _canCraft = false;
+                _hasOrderCrafted = true;
+                // CRAFT ORDER HERE
 
-                canTrigger = false;
-                currentFillValue = 0;
+                _canTrigger = false;
+                _currentFillValue = 0;
                 UpdateCircleSpriteFillAmounth();
             }
         }
@@ -55,13 +74,18 @@ public class CraftTable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            canTrigger = true;
-            canDecrease = true;
+            _canTrigger = true;
+            _canDecrease = true;
         }
     }
 
     public void UpdateCircleSpriteFillAmounth()
     {
-        fillImage.fillAmount = currentFillValue / maxFillValue;
+        _fillImage.fillAmount = _currentFillValue / _maxFillValue;
+    }
+
+    public bool HasOrderCrafted()
+    {
+        return _hasOrderCrafted;
     }
 }
