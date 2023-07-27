@@ -27,18 +27,28 @@ public class Refinery : MonoBehaviour
         _player = _manager.Player_Ref;
         _inv = _manager.Inventory_Ref;
     }
-    
-    
+
+
     public void Refine()
     {
-        foreach(Item item in input_items){
+        // Step 1: Check if all items are available
+        foreach (Item item in input_items)
+        {
             if (!_inv.CheckAnyLeft(item))
+            {
+                // If any item is not available, return without making any changes
                 return;
-
-            _inv.DecreaseItem(item, ConversionPower);        
+            }
         }
-        _inv.IncreaseItem(output_item, ConversionPower);
 
+        // Step 2: Decrease quantities of all available items
+        foreach (Item item in input_items)
+        {
+            _inv.DecreaseItem(item, ConversionPower);
+        }
+
+        // Step 3: Increase the output item quantity
+        _inv.IncreaseItem(output_item, ConversionPower);
     }
 
 }
