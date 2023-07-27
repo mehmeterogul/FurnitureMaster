@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
     private CharacterController _controller;
 
 
+    // TEMP
+    [SerializeField] private Transform _holdPosition;
+    private Transform _heldObject;
+    // TEMP
+
+
     private void Start()
     {
         InitializeComponents();
@@ -72,4 +78,17 @@ public class PlayerController : MonoBehaviour
     {
         status.Gather_Stat = Status.GatherStatus.NotGathering;
     }
+
+
+    // TEMP
+    public void HoldCraftedObject(Transform craftedObjectPrefab)
+    {
+        Transform _heldObject = Instantiate(craftedObjectPrefab, _holdPosition);
+    }
+
+    public void HideCraftedObject()
+    {
+        Destroy(_heldObject.gameObject);
+    }
+    // TEMP
 }

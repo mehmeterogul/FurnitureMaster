@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _orderController: {fileID: 1219510146742443933}
+  _craftTable: {fileID: 0}
 --- !u!1 &5475326392945175050
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736cc276ad8997c4db1c2c9b16ad6e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentOrder: {fileID: 11400000, guid: b88935a78473c104b9b7e91bebc358ec, type: 2}
+  _orderList: {fileID: 11400000, guid: 6d362ef0f5b7c2b44a69a16970f24608, type: 2}
   _orderIcon: {fileID: 5376357548374767410}
   _orderCanvas: {fileID: 310274621660408102}
 --- !u!1 &5480693546907827871

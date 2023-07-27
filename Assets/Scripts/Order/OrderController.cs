@@ -7,7 +7,11 @@ public class OrderController : MonoBehaviour
 {
     private CustomerSpawner _customerSpawner;
     private CraftTable _craftTable;
-    [SerializeField] private OrderSO _currentOrder;
+
+    [SerializeField] private OrderListSO _orderList;
+
+    private OrderSO _currentOrder;
+
     [SerializeField] private Image _orderIcon;
     [SerializeField] private GameObject _orderCanvas;
     private bool _hasOrderTaken;
@@ -26,13 +30,25 @@ public class OrderController : MonoBehaviour
     public void ShowNextOrder()
     {
         _hasOrderTaken = true;
-        SetOrder(_currentOrder);
+        SetOrder(GetRandomOrder());
+    }
+
+    private OrderSO GetRandomOrder()
+    {
+        // Check upgrade status and bring list which is appropriate
+        // List<OrderSO> orderList = _orderList.level1OrderList;
+        // List<OrderSO> orderList = _orderList.level2OrderList;
+        //List<OrderSO> orderList = _orderList.level3OrderList;
+
+        List<OrderSO> orderList = _orderList.level1OrderList;
+        OrderSO randomOrder = orderList[Random.Range(0, orderList.Count)];
+        return randomOrder;
     }
 
     public void SetOrder(OrderSO order)
     {
         _orderCanvas.SetActive(true);
-        // _currentOrder = order;
+        _currentOrder = order;
         _orderIcon.sprite = order.OrderIcon;
     }
 
