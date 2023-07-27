@@ -67,9 +67,4 @@ public class Trigger : MonoBehaviour
     {
         _fillImage.fillAmount = _currentFillValue / _maxFillValue;
     }
-
-    public void Testing()
-    {
-        Debug.Log("Test");
-    }
 }
