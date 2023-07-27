@@ -29,16 +29,13 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _canDecrease = false;
-            _canTrigger = true;
-        }
+        _canDecrease = false;
+        _canTrigger = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && _canTrigger)
+        if (_canTrigger)
         {
             _currentFillValue += _imageFillRate;
             UpdateCircleSpriteFillAmounth();
@@ -56,11 +53,8 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _canTrigger = true;
-            _canDecrease = true;
-        }
+        _canTrigger = true;
+        _canDecrease = true;
     }
 
     public void UpdateCircleSpriteFillAmounth()

@@ -19,21 +19,18 @@ public class OrderTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
-        {
-            if (!_orderController.HasOrderTaken())
-                return;
+        if (!_orderController.HasOrderTaken())
+            return;
 
-            if (_craftTable.HasOrderCrafted())
-            {
-                _orderController.CheckCanDeliver();
-            }
-            else
-            {
-                OrderSO currentOrder = _orderController.GetCurrentOrder();
-                _craftTable.ShowOrderOnCraftTable(currentOrder);
-                _orderController.CloseCanvas();
-            }
+        if (_craftTable.HasOrderCrafted())
+        {
+            _orderController.CheckCanDeliver();
+        }
+        else
+        {
+            OrderSO currentOrder = _orderController.GetCurrentOrder();
+            _craftTable.ShowOrderOnCraftTable(currentOrder);
+            _orderController.CloseCanvas();
         }
     }
 }

@@ -14,6 +14,7 @@ public class CraftTable : MonoBehaviour
     private bool _canCraft = false;
     private bool _hasOrderCrafted = false;
     [SerializeField] private Image _orderImage;
+    private OrderSO _currentOrder;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class CraftTable : MonoBehaviour
 
     public void ShowOrderOnCraftTable(OrderSO order)
     {
+        _currentOrder = order;
         _canCraft = true;
         _hasOrderCrafted = false;
         _orderImage.gameObject.SetActive(true);
@@ -42,16 +44,31 @@ public class CraftTable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (!IsResourceEnough())
+            return;
+
+        _canDecrease = false;
+        _canTrigger = true;
+    }
+
+    private bool IsResourceEnough()
+    {
+        Inventory inventory = FindObjectOfType<Inventory>();
+        List<RequiredResourcesDictionary> requiredResourceDictionary = _currentOrder.requiredResourceDictionary;
+
+        foreach (var item in requiredResourceDictionary)
         {
-            _canDecrease = false;
-            _canTrigger = true;
+            bool isMaterialsEnough = inventory.IsResourceEnough(item.resource, item.amount);
+            if (!isMaterialsEnough)
+                return false;
         }
+
+        return true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && _canTrigger && _canCraft)
+        if (_canTrigger && _canCraft)
         {
             _currentFillValue += _imageFillRate;
             UpdateCircleSpriteFillAmounth();
@@ -72,11 +89,8 @@ public class CraftTable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            _canTrigger = true;
-            _canDecrease = true;
-        }
+        _canTrigger = true;
+        _canDecrease = true;
     }
 
     public void UpdateCircleSpriteFillAmounth()
