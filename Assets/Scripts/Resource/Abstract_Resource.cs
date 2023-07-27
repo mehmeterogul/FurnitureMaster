@@ -13,8 +13,9 @@ public abstract class Abstract_Resource : MonoBehaviour
     public Game_Manager _manager;
     public Coroutine gatherCoroutine;
     public Item output_item;
-
     public bool _playerLeft;
+
+    protected SpawnPoint _spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public abstract class Abstract_Resource : MonoBehaviour
     public abstract IEnumerator GatherResourceCoroutine();
 
     //Common Methods
+    public void SetSpawnPoint(SpawnPoint spawnPoint)
+    {
+        _spawnPoint = spawnPoint;
+    }
     private void InitializeComponents()
     {
         _manager = Game_Manager.Instance;
@@ -59,7 +64,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     {     
         Health -= damage;
         _inv.IncreaseItem(output_item,damage);
-        Debug.Log("hp:" + Health.ToString());
+        Debug.Log("Hit:" + Health.ToString());
         CheckDestroy();
     }
     public void CheckDestroy()
@@ -69,6 +74,6 @@ public abstract class Abstract_Resource : MonoBehaviour
     }
     public void DestroyMe()
     {
-        Destroy(gameObject);
+        _spawnPoint.owner.ClearResource(_spawnPoint);
     }
 }

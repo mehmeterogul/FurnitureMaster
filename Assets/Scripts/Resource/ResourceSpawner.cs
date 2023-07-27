@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ResourceSpawner : MonoBehaviour
 {
@@ -9,6 +8,7 @@ public class ResourceSpawner : MonoBehaviour
     public float SpawnPeriod = 8f;
     public float RandomMovementOffsetValue = 0.5f;
     public float RandomRotationOffsetValue = 180f;
+    public int current_level = 1;
 
     private List<ResourcePrefabSO> _resourcePrefabs;
     private List<Transform> _spawnTransforms;
@@ -21,6 +21,7 @@ public class ResourceSpawner : MonoBehaviour
 
         InvokeRepeating(nameof(GenerateRandomResource), SpawnPeriod, SpawnPeriod);
     }
+
     private void InitializeComponents()
     {
         _spawnTransforms = GetDirectChildTransforms();
@@ -38,6 +39,11 @@ public class ResourceSpawner : MonoBehaviour
     {
         
     }
+    public void ClearResource(SpawnPoint point)
+    {
+        point.empty = true;
+        Destroy(point.spawnedObject);
+    }
     public void GenerateRandomResource()
     {
         if (_resourcePrefabs.Count == 0 || _spawnPoints.Count == 0)
@@ -46,28 +52,17 @@ public class ResourceSpawner : MonoBehaviour
             return;
         }
 
-        // Check if all spawn points are full
-        bool allSpawnPointsFull = true;
-        foreach (SpawnPoint spawnPoint in _spawnPoints)
-        {
-            if (spawnPoint.empty)
-            {
-                allSpawnPointsFull = false;
-                break;
-            }
-        }
-
-        if (allSpawnPointsFull)
-        {
-            // Don't spawn any resources if all spawn points are full
+        // Don't spawn any resources if all spawn points are full
+        if (CheckEmptySpace())
             return;
-        }
+
+        List<ResourcePrefabSO> eligibleResources = _resourcePrefabs.FindAll(resource => resource.AvailableLevel <= current_level);
 
         // Choose a random resource prefab from the list
-        ResourcePrefabSO randomResource = _resourcePrefabs[Random.Range(0, _resourcePrefabs.Count)];
-
+        ResourcePrefabSO randomResource = eligibleResources[Random.Range(0, eligibleResources.Count)];
         // Choose a random empty spawn point
         List<SpawnPoint> emptySpawnPoints = _spawnPoints.FindAll(spawnPoint => spawnPoint.empty);
+
         if (emptySpawnPoints.Count <=  maxResourceInRegion)
         {
             // Don't spawn any resources if there are no empty spawn points
@@ -87,9 +82,30 @@ public class ResourceSpawner : MonoBehaviour
 
 
         // Instantiate the resource prefab at the chosen spawn point position
-        Instantiate(randomResource.Prefab, randomSpawnPoint.pos,spawnRotation);
+        GameObject spawnedPrefab = Instantiate(randomResource.Prefab, randomSpawnPoint.pos,spawnRotation);
+
+        //Set Adjustments
+        randomSpawnPoint.spawnedObject = spawnedPrefab;
+        randomSpawnPoint.owner = this;
+        Abstract_Resource abstractResource = spawnedPrefab.GetComponent<Abstract_Resource>();
+        if (abstractResource != null)
+        {
+            abstractResource.SetSpawnPoint(randomSpawnPoint);
+        }
+
     }
 
+    private bool CheckEmptySpace()
+    {
+        foreach (SpawnPoint spawnPoint in _spawnPoints)
+        {
+            if (spawnPoint.empty)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     private List<Transform> GetDirectChildTransforms()
     {
         _spawnTransforms = new List<Transform>();
