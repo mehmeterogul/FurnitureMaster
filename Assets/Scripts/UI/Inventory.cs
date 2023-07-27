@@ -75,6 +75,12 @@ public class Inventory : MonoBehaviour
         ItemUI existingItemUI = MaterialItems.Find(itemUI => itemUI.Properties == item);
         return existingItemUI.amount;
     }
-
+    public bool CheckAnyLeft(Item item)
+    {
+        if (GetAmount(item) > 0)
+            return true;
+        else
+            return false;
+    }
 
 }

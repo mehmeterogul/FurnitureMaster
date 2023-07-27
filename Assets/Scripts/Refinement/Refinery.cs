@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEditor.Progress;
 
 public class Refinery : MonoBehaviour
 {
@@ -26,17 +27,10 @@ public class Refinery : MonoBehaviour
         _inv = _manager.Inventory_Ref;
     }
     
-    private bool CheckAmount()
-    {
-        if (_inv.GetAmount(input_item) > 0)
-            return true;
-        else
-            return false;
-    }
     
     public void Refine()
     {
-        if (!CheckAmount())
+        if (!_inv.CheckAnyLeft(input_item))
             return;
 
         _inv.DecreaseResourceItem(input_item,1);
