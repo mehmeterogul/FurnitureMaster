@@ -30,30 +30,25 @@ public class Trigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _canDecrease = false;
-        _canTrigger = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (_canTrigger)
+        _currentFillValue += _imageFillRate;
+        UpdateCircleSpriteFillAmounth();
+
+        if (_currentFillValue >= _maxFillValue)
         {
-            _currentFillValue += _imageFillRate;
+            _canTrigger = false;
+            _currentFillValue = 0;
             UpdateCircleSpriteFillAmounth();
 
-            if (_currentFillValue == _maxFillValue)
-            {
-                _canTrigger = false;
-                _currentFillValue = 0;
-                UpdateCircleSpriteFillAmounth();
-
-                OnFillComplete?.Invoke();
-            }
+            OnFillComplete?.Invoke();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _canTrigger = true;
         _canDecrease = true;
     }
 
