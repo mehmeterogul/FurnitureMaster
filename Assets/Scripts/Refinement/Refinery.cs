@@ -8,12 +8,13 @@ using static UnityEditor.Progress;
 public class Refinery : MonoBehaviour
 {
     public float ConversionSpeed;
+    public int ConversionPower;
     public Item input_item;
     public Item output_item;
 
-    public PlayerController _player;
-    public Inventory _inv;
-    public Game_Manager _manager;
+    private PlayerController _player;
+    private Inventory _inv;
+    private Game_Manager _manager;
 
     void Start()
     {
@@ -33,8 +34,9 @@ public class Refinery : MonoBehaviour
         if (!_inv.CheckAnyLeft(input_item))
             return;
 
-        _inv.DecreaseResourceItem(input_item,1);
-            
+        _inv.DecreaseItem(input_item, ConversionPower);
+        _inv.IncreaseItem(output_item, ConversionPower);
+
     }
 
 }

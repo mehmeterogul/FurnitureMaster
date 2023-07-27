@@ -6,8 +6,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Inventory : MonoBehaviour
 {    
-    public List<ItemUI> ResourceItems;
-    public List<ItemUI> MaterialItems;
+    public List<ItemUI> Items;
 
     private PlayerController _player;
     private Game_Manager _manager;
@@ -26,10 +25,10 @@ public class Inventory : MonoBehaviour
         _manager = Game_Manager.Instance;
         _player = _manager.Player_Ref;
     }
-    public void IncreaseResourceItem(Item item ,int amount) 
+    public void IncreaseItem(Item item ,int amount) 
     {
         // Check if the item already exists in the list
-        ItemUI existingItemUI = ResourceItems.Find(itemUI => itemUI.Properties == item);
+        ItemUI existingItemUI = Items.Find(itemUI => itemUI.Properties == item);
         if (existingItemUI != null)
         {
             // If the item exists, increase its amount
@@ -37,43 +36,24 @@ public class Inventory : MonoBehaviour
         }
 
     }
-    public void DecreaseResourceItem(Item item, int amount)
+    public void DecreaseItem(Item item, int amount)
     {
         // Check if the item already exists in the list
-        ItemUI existingItemUI = ResourceItems.Find(itemUI => itemUI.Properties == item);
+        ItemUI existingItemUI = Items.Find(itemUI => itemUI.Properties == item);
         if (existingItemUI != null)
         {
             // If the item exists, increase its amount
             existingItemUI.Decrease(amount);
         }
     }
-    public void IncreaseMaterialItem(Item item, int amount)
-    {
-        // Check if the item already exists in the list
-        ItemUI existingItemUI = MaterialItems.Find(itemUI => itemUI.Properties == item);
-        if (existingItemUI != null)
-        {
-            // If the item exists, increase its amount
-            existingItemUI.Increase(amount);
-        }
-
-    }
-    public void DecreaseMaterialItem(Item item, int amount)
-    {
-        // Check if the item already exists in the list
-        ItemUI existingItemUI = MaterialItems.Find(itemUI => itemUI.Properties == item);
-        if (existingItemUI != null)
-        {
-            // If the item exists, increase its amount
-            existingItemUI.Increase(amount);
-        }
-
-    }
 
     public int GetAmount(Item item)
     {
-        ItemUI existingItemUI = MaterialItems.Find(itemUI => itemUI.Properties == item);
-        return existingItemUI.amount;
+        ItemUI existingItemUI = Items.Find(itemUI => itemUI.Properties == item);
+        if (existingItemUI != null)
+            return existingItemUI.amount;
+        else
+            return 0;
     }
     public bool CheckAnyLeft(Item item)
     {

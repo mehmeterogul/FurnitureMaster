@@ -58,7 +58,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     public void TakeHit(int damage)
     {     
         Health -= damage;
-        _inv.IncreaseResourceItem(output_item,damage);
+        _inv.IncreaseItem(output_item,damage);
         Debug.Log("hp:" + Health.ToString());
         CheckDestroy();
     }
