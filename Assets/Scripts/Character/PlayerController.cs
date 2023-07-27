@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     // TEMP
     public void HoldCraftedObject(Transform craftedObjectPrefab)
     {
-        Transform _heldObject = Instantiate(craftedObjectPrefab, _holdPosition);
+        _heldObject = Instantiate(craftedObjectPrefab, _holdPosition);
     }
 
     public void HideCraftedObject()
