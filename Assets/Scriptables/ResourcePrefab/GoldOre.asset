@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00be0d45ade764043bdf402634b4bbbc, type: 3}
   m_Name: GoldOre
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 8239054470132999367, guid: a631e84e74bdb0a4db179ef0139fc4a3, type: 3}
+  Prefab: {fileID: 4665960893784388891, guid: a631e84e74bdb0a4db179ef0139fc4a3, type: 3}
   AvailableLevel: 3

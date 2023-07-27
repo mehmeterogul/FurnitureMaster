@@ -5,16 +5,21 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ResourceSpawner : MonoBehaviour
 {
-    public List<ResourcePrefabSO> _resourcePrefabs;
-    public List<Transform> _spawnTransforms;
-    public List<SpawnPoint> _spawnPoints;
+    public int maxResourceInRegion =3;
+    public float SpawnPeriod = 8f;
+    public float RandomMovementOffsetValue = 0.5f;
+    public float RandomRotationOffsetValue = 180f;
+
+    private List<ResourcePrefabSO> _resourcePrefabs;
+    private List<Transform> _spawnTransforms;
+    private List<SpawnPoint> _spawnPoints;
 
     // Start is called before the first frame update
     void Start()
     {
         InitializeComponents();
 
-        InvokeRepeating(nameof(GenerateRandomResource), 1f, 1f);
+        InvokeRepeating(nameof(GenerateRandomResource), SpawnPeriod, SpawnPeriod);
     }
     private void InitializeComponents()
     {
@@ -63,7 +68,7 @@ public class ResourceSpawner : MonoBehaviour
 
         // Choose a random empty spawn point
         List<SpawnPoint> emptySpawnPoints = _spawnPoints.FindAll(spawnPoint => spawnPoint.empty);
-        if (emptySpawnPoints.Count == 0)
+        if (emptySpawnPoints.Count <=  maxResourceInRegion)
         {
             // Don't spawn any resources if there are no empty spawn points
             return;
@@ -72,13 +77,22 @@ public class ResourceSpawner : MonoBehaviour
         SpawnPoint randomSpawnPoint = emptySpawnPoints[Random.Range(0, emptySpawnPoints.Count)];
         randomSpawnPoint.empty = false; // Mark the spawn point as non-empty
 
+        //random offset
+        Vector3 randomPositionOffset = new Vector3(Random.Range(-RandomMovementOffsetValue, RandomMovementOffsetValue),0, Random.Range(-RandomMovementOffsetValue, RandomMovementOffsetValue));
+        Quaternion randomRotationOffset = Quaternion.Euler(0, Random.Range(0f,RandomRotationOffsetValue),0);
+
+        // Apply the offsets to the spawn point position and rotation
+        Vector3 spawnPosition = randomSpawnPoint.pos + randomPositionOffset;
+        Quaternion spawnRotation = randomRotationOffset;
+
+
         // Instantiate the resource prefab at the chosen spawn point position
-        Instantiate(randomResource.Prefab, randomSpawnPoint.pos, Quaternion.identity);
+        Instantiate(randomResource.Prefab, randomSpawnPoint.pos,spawnRotation);
     }
 
     private List<Transform> GetDirectChildTransforms()
     {
-        _spawnTransforms.Clear(); // Clear the list before populating it
+        _spawnTransforms = new List<Transform>();
 
         // Add all direct child transforms to the list
         for (int i = 0; i < transform.childCount; i++)

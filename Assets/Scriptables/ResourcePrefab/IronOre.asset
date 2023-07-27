@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00be0d45ade764043bdf402634b4bbbc, type: 3}
   m_Name: IronOre
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 5315534259743928102, guid: e900dcf5980ddfc40ba43f8e599101a1, type: 3}
+  Prefab: {fileID: 8278951436855717818, guid: 143e533d863623d4bb6feaa06738c93c, type: 3}
   AvailableLevel: 2
