@@ -58,12 +58,10 @@ public class CraftTable : MonoBehaviour
 
         foreach (var item in requiredResourceDictionary)
         {
-            /*
-            int amount = 
-            bool isMaterialsEnough = inventory.GetAmount(item.resource, item.amount);
+            int resourceAmount = inventory.GetAmount(item.resource);
+            bool isMaterialsEnough = (resourceAmount - item.amount) >= 0;
             if (!isMaterialsEnough)
                 return false;
-            */
         }
 
         return true;
