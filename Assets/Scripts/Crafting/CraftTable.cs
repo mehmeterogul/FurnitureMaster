@@ -53,6 +53,9 @@ public class CraftTable : MonoBehaviour
 
     private bool IsResourceEnough()
     {
+        if (!_currentOrder)
+            return false;
+
         Inventory inventory = FindObjectOfType<Inventory>();
         List<RequiredResourcesDictionary> requiredResourceDictionary = _currentOrder.requiredResourceDictionary;
 
@@ -67,6 +70,17 @@ public class CraftTable : MonoBehaviour
         return true;
     }
 
+    private void DecreaseResources()
+    {
+        Inventory inventory = FindObjectOfType<Inventory>();
+        List<RequiredResourcesDictionary> requiredResourceDictionary = _currentOrder.requiredResourceDictionary;
+
+        foreach (var item in requiredResourceDictionary)
+        {
+            inventory.DecreaseItem(item.resource, item.amount);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (_canTrigger && _canCraft)
@@ -78,8 +92,10 @@ public class CraftTable : MonoBehaviour
             {
                 _orderImage.gameObject.SetActive(false);
                 _canCraft = false;
-                _hasOrderCrafted = true;
+
                 // CRAFT ORDER HERE
+                _hasOrderCrafted = true;
+                DecreaseResources();
 
                 _canTrigger = false;
                 _currentFillValue = 0;
