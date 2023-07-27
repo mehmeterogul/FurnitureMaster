@@ -11,7 +11,6 @@ public class Trigger : MonoBehaviour
     [SerializeField] private float _maxFillValue = 100f;
     [SerializeField] private float _currentFillValue = 0f;
     private bool _canDecrease = false;
-    private bool _canTrigger = false;
 
     public UnityEvent OnFillComplete;
 
@@ -39,7 +38,6 @@ public class Trigger : MonoBehaviour
 
         if (_currentFillValue >= _maxFillValue)
         {
-            _canTrigger = false;
             _currentFillValue = 0;
             UpdateCircleSpriteFillAmounth();
 
