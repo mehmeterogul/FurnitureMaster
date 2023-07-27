@@ -8,4 +8,5 @@ public class OrderSO : ScriptableObject
     public Sprite OrderIcon;
     public List<RequiredResourcesDictionary> requiredResourceDictionary;
     public int OrderPayment;
+    public Transform OrderPrefab;
 }

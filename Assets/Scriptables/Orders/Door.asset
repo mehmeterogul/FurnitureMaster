@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e747b005f47f78499b98f1372114578, type: 3}
-  m_Name: Table
+  m_Name: Door
   m_EditorClassIdentifier: 
-  OrderName: Table
-  OrderIcon: {fileID: 21300000, guid: e54bbb57c8ddef941a68e7ed77b4800d, type: 3}
+  OrderName: Door
+  OrderIcon: {fileID: 21300000, guid: 527fd9217cc04f743b03fabed2af8199, type: 3}
   requiredResourceDictionary:
   - resource: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
-    amount: 11
-  OrderPayment: 45
+    amount: 13
+  OrderPayment: 52
   OrderPrefab: {fileID: 1636458855942537730, guid: 77b6604c4e83758469127716882b915f,
     type: 3}
