@@ -7,14 +7,15 @@ public abstract class Abstract_Ore : Abstract_Resource
     public override IEnumerator GatherResourceCoroutine()
     {
         while (true)
-        {
-            TakeHit(_player.DigPower);
+        {            
             if (_playerLeft)
             {
                 // Player left, cancel the coroutine
+                _player.LeaveGathering();
                 gatherCoroutine = null;
                 yield break;
             }
+            TakeHit(_player.DigPower);
 
             yield return new WaitForSeconds(_player.DigPeriod);
         }

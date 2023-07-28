@@ -27,11 +27,12 @@ public class UpgradeManager : MonoBehaviour
     private Game_Manager _manager;
     private void Start()
     {
-
+        InitializeComponents();
     }
     private void InitializeComponents()
     {
-        _player = Game_Manager.Instance.Player_Ref;
+        _manager = Game_Manager.Instance;
+        _player = _manager.Player_Ref;
     }
     public void UnlockArea1()
     {

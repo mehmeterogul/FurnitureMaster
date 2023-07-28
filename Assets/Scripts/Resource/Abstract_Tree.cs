@@ -8,14 +8,14 @@ public abstract class Abstract_Tree:Abstract_Resource
     {
         while (true)
         {
-            TakeHit(_player.CutPower);
             if (_playerLeft)
             {
-                _player.LeaveGathering();
                 // Player left, cancel the coroutine
+                _player.LeaveGathering();
                 gatherCoroutine = null;
                 yield break;
             }
+            TakeHit(_player.CutPower);
 
             yield return new WaitForSeconds(_player.CutPeriod);
         }
