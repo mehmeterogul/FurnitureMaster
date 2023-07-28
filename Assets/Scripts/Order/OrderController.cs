@@ -35,14 +35,31 @@ public class OrderController : MonoBehaviour
 
     private OrderSO GetRandomOrder()
     {
-        // Check upgrade status and bring list which is appropriate
-        // List<OrderSO> orderList = _orderList.level1OrderList;
-        // List<OrderSO> orderList = _orderList.level2OrderList;
-        //List<OrderSO> orderList = _orderList.level3OrderList;
-
-        List<OrderSO> orderList = _orderList.level1OrderList;
+        List<OrderSO> orderList = GetOrderList();
         OrderSO randomOrder = orderList[Random.Range(0, orderList.Count)];
         return randomOrder;
+    }
+
+    private List<OrderSO> GetOrderList()
+    {
+        List <OrderSO> list = new List<OrderSO>();
+
+        int level = Game_Manager.Instance.CurrentLevel_Ref;
+        switch(level)
+        {
+            default:
+            case 1:
+                list = _orderList.level1OrderList;
+                break;
+            case 2:
+                list = _orderList.level2OrderList;
+                break;
+            case 3:
+                list = _orderList.level3OrderList;
+                break;
+        }
+
+        return list;
     }
 
     public void SetOrder(OrderSO order)

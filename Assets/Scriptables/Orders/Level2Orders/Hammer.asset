@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e747b005f47f78499b98f1372114578, type: 3}
-  m_Name: Table
+  m_Name: Hammer
   m_EditorClassIdentifier: 
-  OrderName: Table
-  OrderIcon: {fileID: 21300000, guid: e54bbb57c8ddef941a68e7ed77b4800d, type: 3}
+  OrderName: Hammer
+  OrderIcon: {fileID: 21300000, guid: 5dfc7b812a21fb743ae111f4957eacef, type: 3}
   requiredResourceDictionary:
   - resource: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
-    amount: 11
-  OrderPayment: 45
-  OrderPrefab: {fileID: 1636458855942537730, guid: 77b6604c4e83758469127716882b915f,
+    amount: 4
+  - resource: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
+    amount: 2
+  OrderPayment: 40
+  OrderPrefab: {fileID: 1636458855942537730, guid: f373d7213e0732c439c2d8996de14700,
     type: 3}

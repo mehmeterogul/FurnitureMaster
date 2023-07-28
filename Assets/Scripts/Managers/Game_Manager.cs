@@ -28,4 +28,9 @@ public class Game_Manager:MonoBehaviour
         _instance = this;
         CurrentLevel_Ref = 1;
     }
+
+    public int GetLevel()
+    {
+        return CurrentLevel_Ref;
+    }
 }

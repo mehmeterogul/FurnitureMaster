@@ -9,7 +9,7 @@ public class RequiredMaterialUI : MonoBehaviour
 
     public void SetIcon(Image icon)
     {
-        _requiredMaterialIcon = icon;
+        _requiredMaterialIcon.sprite = icon.sprite;
     }
 
     public void SetText(string text)

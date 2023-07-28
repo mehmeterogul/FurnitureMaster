@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e747b005f47f78499b98f1372114578, type: 3}
-  m_Name: Door
+  m_Name: GoldSword
   m_EditorClassIdentifier: 
-  OrderName: Door
-  OrderIcon: {fileID: 21300000, guid: 527fd9217cc04f743b03fabed2af8199, type: 3}
+  OrderName: GoldSword
+  OrderIcon: {fileID: 21300000, guid: 5cd9a867281ac7e48a1980ec3cd5b0e7, type: 3}
   requiredResourceDictionary:
   - resource: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
-    amount: 13
-  OrderPayment: 52
-  OrderPrefab: {fileID: 1636458855942537730, guid: 9edc0fac53364494db1c96945df5a28a,
+    amount: 4
+  - resource: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
+    amount: 5
+  - resource: {fileID: 11400000, guid: d38b6aff37d33074eae57ef3da2a09ed, type: 2}
+    amount: 8
+  OrderPayment: 250
+  OrderPrefab: {fileID: 1636458855942537730, guid: a9bd653d54a52a54f889759de5548892,
     type: 3}
