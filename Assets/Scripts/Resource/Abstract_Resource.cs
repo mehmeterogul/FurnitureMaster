@@ -46,7 +46,6 @@ public abstract class Abstract_Resource : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _playerLeft = false;
-        _player.GatherResource(this);
     }
 
     private void OnTriggerStay(Collider other)
@@ -61,10 +60,10 @@ public abstract class Abstract_Resource : MonoBehaviour
     }
 
     public void TakeHit(int damage)
-    {     
+    {
+        _player.GatherResource(this);
         Health -= damage;
         _inv.IncreaseItem(output_item,damage);
-        Debug.Log("Hit:" + Health.ToString());
         CheckDestroy();
     }
     public void CheckDestroy()
@@ -74,6 +73,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     }
     public void DestroyMe()
     {
+        _player.LeaveGathering();
         _spawnPoint.owner.ClearResource(_spawnPoint);
     }
 }

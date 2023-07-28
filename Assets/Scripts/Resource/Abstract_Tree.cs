@@ -11,6 +11,7 @@ public abstract class Abstract_Tree:Abstract_Resource
             TakeHit(_player.CutPower);
             if (_playerLeft)
             {
+                _player.LeaveGathering();
                 // Player left, cancel the coroutine
                 gatherCoroutine = null;
                 yield break;

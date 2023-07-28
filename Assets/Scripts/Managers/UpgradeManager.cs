@@ -23,7 +23,16 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private Transform _goldFurnitureTrigger;
 
     private float xPositionArrangment = -3.62f;
+    private PlayerController _player;
+    private Game_Manager _manager;
+    private void Start()
+    {
 
+    }
+    private void InitializeComponents()
+    {
+        _player = Game_Manager.Instance.Player_Ref;
+    }
     public void UnlockArea1()
     {
         // ..
@@ -31,17 +40,18 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeAxe()
     {
-        Debug.Log("Upgrade Axe function called");
+        _player.CutPower = 2;
     }
 
     public void UnlockPickaxe()
     {
-        Debug.Log("Unlock Pickaxe function called");
+        _manager.CurrentLevel_Ref = 2;
     }
 
     public void UpgradePickaxe()
     {
-        Debug.Log("Upgrade Pickaxe function called");
+        _manager.CurrentLevel_Ref = 3;
+        _player.DigPower = 2;
     }
 
     public void UnlockSawmill()

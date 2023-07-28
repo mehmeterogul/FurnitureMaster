@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float DigPeriod = 1f;
     public int CutPower = 1;
     public int DigPower = 1;
-
+    public Animator anim;
     public Status status;
 
     private Vector3 _playerVelocity;
@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            gameObject.transform.forward = move;
-            status.Movement_Stat = Status.MovementStatus.Walking;
+            StartMove();
+            transform.forward = move.normalized;
         }
         else
         {
-            status.Movement_Stat = Status.MovementStatus.Idle;
+            StopMove();
         }
         _controller.Move(_playerVelocity * Time.deltaTime);
     }
@@ -68,17 +68,29 @@ public class PlayerController : MonoBehaviour
     public void Dig(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Digging;
+        anim.SetBool("isGathering", true);
 
     }
     public void Cut(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Cutting;
+        anim.SetBool("isGathering", true);
     }
     public void LeaveGathering()
     {
         status.Gather_Stat = Status.GatherStatus.NotGathering;
+        anim.SetBool("isGathering", false);
     }
-
+    private void StartMove()
+    {
+        status.Movement_Stat = Status.MovementStatus.Walking;
+        anim.SetBool("isMoving",true);
+    }
+    private void StopMove()
+    {
+        status.Movement_Stat = Status.MovementStatus.Idle;
+        anim.SetBool("isMoving", false);
+    }
 
     // TEMP
     public void HoldCraftedObject(Transform craftedObjectPrefab)
