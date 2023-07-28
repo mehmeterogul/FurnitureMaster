@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
+    /*
     private bool _isPickaxeUnlocked;
     private bool _isPickaxeUpgraded;
     private bool _isSawmillUnlocked;
     private bool _isFurnitureUnlocked;
     private bool _isGoldFurnitureUnlocked;
+    */
+
+    [Header("Refinement Prefabs")]
+    [SerializeField] private Transform _sawmillPrefab;
+    [SerializeField] private Transform _furniturePrefab;
+    [SerializeField] private Transform _goldFurniturePrefab;
+
+    [Header("Refinement Triggers")]
+    [SerializeField] private Transform _sawwillTrigger;
+    [SerializeField] private Transform _furnitureTrigger;
+    [SerializeField] private Transform _goldFurnitureTrigger;
+
+    private float xPositionArrangment = -3.62f;
+
+    public void UnlockArea1()
+    {
+        // ..
+    }
 
     public void UpgradeAxe()
     {
@@ -27,16 +46,22 @@ public class UpgradeManager : MonoBehaviour
 
     public void UnlockSawmill()
     {
-        Debug.Log("Unlock Sawmill function called");
+        Vector3 instantiationPosition = new Vector3(_sawwillTrigger.position.x + xPositionArrangment, _sawmillPrefab.position.y, _sawwillTrigger.position.z);
+        Instantiate(_sawmillPrefab, instantiationPosition, Quaternion.identity);
+        Destroy(_sawwillTrigger.gameObject, 0.1f);
     }
 
     public void UnlockFurniture()
     {
-        Debug.Log("Unlock Furniture function called");
+        Vector3 instantiationPosition = new Vector3(_furnitureTrigger.position.x + xPositionArrangment, _furniturePrefab.position.y, _furnitureTrigger.position.z);
+        Instantiate(_furniturePrefab, instantiationPosition, Quaternion.identity);
+        Destroy(_furnitureTrigger.gameObject, 0.1f);
     }
 
     public void UnlockGoldFurniture()
     {
-        Debug.Log("Unlock GoldFurniture function called");
+        Vector3 instantiationPosition = new Vector3(_goldFurnitureTrigger.position.x + xPositionArrangment, _goldFurniturePrefab.position.y, _goldFurnitureTrigger.position.z);
+        Instantiate(_goldFurniturePrefab, instantiationPosition, Quaternion.identity);
+        Destroy(_goldFurnitureTrigger.gameObject, 0.1f);
     }
 }
