@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,6 +67,8 @@ public abstract class Abstract_Resource : MonoBehaviour
         Health -= damage;
         _inv.IncreaseItem(output_item,damage);
         CheckDestroy();
+
+        transform.DOShakeScale(0.2f, 0.2f);
     }
     public void CheckDestroy()
     {

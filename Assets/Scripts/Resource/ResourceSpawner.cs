@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ResourceSpawner : MonoBehaviour
 {
@@ -92,6 +93,11 @@ public class ResourceSpawner : MonoBehaviour
 
         // Instantiate the resource prefab at the chosen spawn point position
         GameObject spawnedPrefab = Instantiate(randomResource.Prefab, spawnPosition, spawnRotation);
+
+        // Play scaling up animation
+        Transform spawnedPrefabTransform = spawnedPrefab.transform;
+        spawnedPrefabTransform.localScale = Vector3.one * 0.1f;
+        spawnedPrefabTransform.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutSine);
 
         //Set Adjustments
         randomSpawnPoint.spawnedObject = spawnedPrefab;
