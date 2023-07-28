@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public int DigPower = 1;
     public Animator anim;
     public Status status;
+    public GameObject pickaxe;
+    public GameObject axe;
 
     private Vector3 _playerVelocity;
     private CharacterController _controller;
@@ -32,14 +34,14 @@ public class PlayerController : MonoBehaviour
     {
         Move();
     }
-    void InitializeComponents()
+    private void InitializeComponents()
     {
         _controller = gameObject.GetComponent<CharacterController>();
         status = new Status();
         status.Movement_Stat = Status.MovementStatus.Idle;
 
     }
-    void Move()
+    private void Move()
     {
         Vector3 move = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _controller.Move(move * Time.deltaTime * PlayerSpeed);
@@ -84,12 +86,32 @@ public class PlayerController : MonoBehaviour
     private void StartMove()
     {
         status.Movement_Stat = Status.MovementStatus.Walking;
-        anim.SetBool("isMoving",true);
+        anim.SetBool("isMoving", true);
     }
     private void StopMove()
     {
         status.Movement_Stat = Status.MovementStatus.Idle;
         anim.SetBool("isMoving", false);
+    }
+    public void SwitchTool(Abstract_Resource resource){
+
+        if (resource is Abstract_Tree)
+            SwitchAxe();
+        else
+            SwitchPickAxe();
+    }
+
+    public void SwitchAxe()
+    {
+        axe.SetActive(true);
+        pickaxe.SetActive(false);
+
+    }
+    public void SwitchPickAxe()
+    {
+        axe.SetActive(false);
+        pickaxe.SetActive(true);
+
     }
 
     // TEMP

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ResourceSpawner : MonoBehaviour
 {
+    public GameObject block;
     public int maxResourceInRegion =3;
     public float SpawnPeriod = 8f;
     public float RandomMovementOffsetValue = 1f;
@@ -26,6 +27,7 @@ public class ResourceSpawner : MonoBehaviour
 
     private void UnlockArea()
     {
+        Destroy(block);
         InvokeRepeating(nameof(GenerateRandomResource), SpawnPeriod, SpawnPeriod);
     }
 

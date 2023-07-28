@@ -46,6 +46,7 @@ public abstract class Abstract_Resource : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _playerLeft = false;
+        _player.SwitchTool(this);
     }
 
     private void OnTriggerStay(Collider other)
