@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
@@ -60,6 +61,16 @@ public class Inventory : MonoBehaviour
         else
             return 0;
     }
+
+    public Image GetIcon(Item item)
+    {
+        ItemUI existingItemUI = Items.Find(itemUI => itemUI.Properties == item);
+        if (existingItemUI != null)
+            return existingItemUI.IconImage;
+        else
+            return null;
+    }
+
     public bool CheckAnyLeft(Item item)
     {
         if (GetAmount(item) > 0)

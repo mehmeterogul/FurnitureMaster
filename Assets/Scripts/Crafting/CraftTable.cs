@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CraftTable : MonoBehaviour
 {
+    [Header("Trigger Settings")]
     [SerializeField] private Image _fillImage;
     [SerializeField] private float _imageFillRate = 1f;
     [SerializeField] private float _maxFillValue = 100f;
@@ -13,12 +14,21 @@ public class CraftTable : MonoBehaviour
     private bool _canTrigger = false;
     private bool _canCraft = false;
     private bool _hasOrderCrafted = false;
+
+    [Header("Order Image")]
     [SerializeField] private Image _orderImage;
     private OrderSO _currentOrder;
+
+    [Header("Order Required Material Settings")]
+    [SerializeField] private Transform _requiredMaterialsUIParent;
+    [SerializeField] private Transform _requiredMaterialUIPrefab;
+
+    Inventory _inventory;
 
     private void Start()
     {
         _orderImage.gameObject.SetActive(false);
+        _inventory = Game_Manager.Instance.Inventory_Ref;
     }
 
     void Update()
@@ -40,6 +50,31 @@ public class CraftTable : MonoBehaviour
         _hasOrderCrafted = false;
         _orderImage.gameObject.SetActive(true);
         _orderImage.sprite = order.OrderIcon;
+
+        UpdateRequiredOrderMaterials();
+    }
+
+    private void UpdateRequiredOrderMaterials()
+    {
+        ClearRequiredMaterialVisuals();
+
+        List<RequiredResourcesDictionary> requiredResourceDictionary = _currentOrder.requiredResourceDictionary;
+        foreach (var item in requiredResourceDictionary)
+        {
+            Transform requiredMaterialUITransform = Instantiate(_requiredMaterialUIPrefab, _requiredMaterialsUIParent);
+            RequiredMaterialUI requiredMaterialUI = requiredMaterialUITransform.GetComponent<RequiredMaterialUI>();
+            requiredMaterialUI.SetText(item.amount.ToString());
+            Image resourceIcon = _inventory.GetIcon(item.resource);
+            requiredMaterialUI.SetIcon(resourceIcon);
+        }
+    }
+
+    private void ClearRequiredMaterialVisuals()
+    {
+        foreach (Transform child in _requiredMaterialsUIParent)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,12 +91,11 @@ public class CraftTable : MonoBehaviour
         if (!_currentOrder)
             return false;
 
-        Inventory inventory = FindObjectOfType<Inventory>();
         List<RequiredResourcesDictionary> requiredResourceDictionary = _currentOrder.requiredResourceDictionary;
 
         foreach (var item in requiredResourceDictionary)
         {
-            int resourceAmount = inventory.GetAmount(item.resource);
+            int resourceAmount = _inventory.GetAmount(item.resource);
             bool isMaterialsEnough = (resourceAmount - item.amount) >= 0;
             if (!isMaterialsEnough)
                 return false;
@@ -72,12 +106,11 @@ public class CraftTable : MonoBehaviour
 
     private void DecreaseResources()
     {
-        Inventory inventory = FindObjectOfType<Inventory>();
         List<RequiredResourcesDictionary> requiredResourceDictionary = _currentOrder.requiredResourceDictionary;
 
         foreach (var item in requiredResourceDictionary)
         {
-            inventory.DecreaseItem(item.resource, item.amount);
+            _inventory.DecreaseItem(item.resource, item.amount);
         }
     }
 
@@ -97,6 +130,7 @@ public class CraftTable : MonoBehaviour
                 _hasOrderCrafted = true;
                 Game_Manager.Instance.Player_Ref.HoldCraftedObject(_currentOrder.OrderPrefab);
                 DecreaseResources();
+                ClearRequiredMaterialVisuals();
 
                 _canTrigger = false;
                 _currentFillValue = 0;
