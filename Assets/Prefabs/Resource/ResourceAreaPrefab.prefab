@@ -88,6 +88,7 @@ MonoBehaviour:
   SpawnPeriod: 1
   RandomMovementOffsetValue: 0.5
   RandomRotationOffsetValue: 180
+  current_level: 1
 --- !u!1 &3515354174541951985
 GameObject:
   m_ObjectHideFlags: 0

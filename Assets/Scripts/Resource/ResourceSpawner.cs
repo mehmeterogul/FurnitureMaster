@@ -6,9 +6,10 @@ public class ResourceSpawner : MonoBehaviour
 {
     public int maxResourceInRegion =3;
     public float SpawnPeriod = 8f;
-    public float RandomMovementOffsetValue = 0.5f;
+    public float RandomMovementOffsetValue = 1f;
     public float RandomRotationOffsetValue = 180f;
     public int current_level = 1;
+    public bool unlocked = false;
 
     private List<ResourcePrefabSO> _resourcePrefabs;
     private List<Transform> _spawnTransforms;
@@ -18,7 +19,13 @@ public class ResourceSpawner : MonoBehaviour
     void Start()
     {
         InitializeComponents();
+        if (unlocked)
+            UnlockArea();
+        
+    }
 
+    private void UnlockArea()
+    {
         InvokeRepeating(nameof(GenerateRandomResource), SpawnPeriod, SpawnPeriod);
     }
 
@@ -82,7 +89,7 @@ public class ResourceSpawner : MonoBehaviour
 
 
         // Instantiate the resource prefab at the chosen spawn point position
-        GameObject spawnedPrefab = Instantiate(randomResource.Prefab, randomSpawnPoint.pos,spawnRotation);
+        GameObject spawnedPrefab = Instantiate(randomResource.Prefab, spawnPosition, spawnRotation);
 
         //Set Adjustments
         randomSpawnPoint.spawnedObject = spawnedPrefab;
