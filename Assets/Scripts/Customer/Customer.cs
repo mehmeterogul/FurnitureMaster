@@ -11,6 +11,12 @@ public class Customer : MonoBehaviour
     private bool _canMove;
     public Action OnCustomerArrived;
     private bool _isNextCustomer = false;
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,14 +37,16 @@ public class Customer : MonoBehaviour
         }
         else
         {
+            _animator.SetBool("isWalking", false);
             _canMove = false;
-            if(_isNextCustomer)
+            if (_isNextCustomer)
                 OnCustomerArrived?.Invoke();
         }
     }
 
     public void SetTargetPosition(Vector3 targetPosition)
     {
+        _animator.SetBool("isWalking", true);
         _canMove = true;
         _targetPosition = targetPosition;
     }
