@@ -42,7 +42,13 @@ public class Trigger : MonoBehaviour
             UpdateCircleSpriteFillAmounth();
 
             OnFillComplete?.Invoke();
+            OnComplete();
         }
+    }
+
+    public virtual void OnComplete()
+    {
+
     }
 
     private void OnTriggerExit(Collider other)

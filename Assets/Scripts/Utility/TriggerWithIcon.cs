@@ -9,4 +9,13 @@ public class TriggerWithIcon : Trigger
 {
     [SerializeField] private Image _icon;
     [SerializeField] private TextMeshProUGUI _price;
+    [SerializeField] private bool willDestroy;
+
+    public override void OnComplete()
+    {
+        if(willDestroy)
+        {
+            Destroy(gameObject, 0.1f);
+        }
+    }
 }

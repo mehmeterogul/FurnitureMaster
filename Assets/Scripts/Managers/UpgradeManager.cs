@@ -48,20 +48,17 @@ public class UpgradeManager : MonoBehaviour
     {
         Vector3 instantiationPosition = new Vector3(_sawwillTrigger.position.x + xPositionArrangment, _sawmillPrefab.position.y, _sawwillTrigger.position.z);
         Instantiate(_sawmillPrefab, instantiationPosition, Quaternion.identity);
-        Destroy(_sawwillTrigger.gameObject, 0.1f);
     }
 
     public void UnlockFurniture()
     {
         Vector3 instantiationPosition = new Vector3(_furnitureTrigger.position.x + xPositionArrangment, _furniturePrefab.position.y, _furnitureTrigger.position.z);
         Instantiate(_furniturePrefab, instantiationPosition, Quaternion.identity);
-        Destroy(_furnitureTrigger.gameObject, 0.1f);
     }
 
     public void UnlockGoldFurniture()
     {
         Vector3 instantiationPosition = new Vector3(_goldFurnitureTrigger.position.x + xPositionArrangment, _goldFurniturePrefab.position.y, _goldFurnitureTrigger.position.z);
         Instantiate(_goldFurniturePrefab, instantiationPosition, Quaternion.identity);
-        Destroy(_goldFurnitureTrigger.gameObject, 0.1f);
     }
 }
