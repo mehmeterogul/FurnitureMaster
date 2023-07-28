@@ -2583,16 +2583,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3752345826089593407, guid: ef9b450b5561cb54e92e79ebfcca3a1e,
-        type: 3}
-      propertyPath: CutPower
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3752345826089593407, guid: ef9b450b5561cb54e92e79ebfcca3a1e,
-        type: 3}
-      propertyPath: DigPower
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7175225187027914141, guid: ef9b450b5561cb54e92e79ebfcca3a1e,
         type: 3}
       propertyPath: m_Name

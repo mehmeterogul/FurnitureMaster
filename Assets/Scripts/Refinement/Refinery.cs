@@ -51,4 +51,17 @@ public class Refinery : MonoBehaviour
         _inv.IncreaseItem(output_item, ConversionPower);
     }
 
+    public bool CanRefine()
+    {
+        foreach (Item item in input_items)
+        {
+            if (!_inv.CheckAnyLeft(item))
+            {
+                // If any item is not available, return without making any changes
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

@@ -87,6 +87,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
+      propertyPath: _requiredResource.amount
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -205,6 +216,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnlockPickaxeTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.amount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
@@ -327,6 +349,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
+      propertyPath: _requiredResource.amount
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -445,6 +478,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradePickaxeTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.amount
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
@@ -572,6 +616,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
+      propertyPath: _requiredResource.amount
+      value: 4900
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -697,6 +752,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
+      propertyPath: _requiredResource.amount
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -816,6 +882,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
+      propertyPath: _requiredResource.amount
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5298306274920418513}
@@ -898,6 +975,17 @@ PrefabInstance:
       propertyPath: willDestroy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.amount
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
+        type: 3}
+      propertyPath: _requiredResource.resource
+      value: 
+      objectReference: {fileID: 11400000, guid: 5cd5224dd2453884298f1a708a9fcb97,
+        type: 2}
     - target: {fileID: 4141337324035990307, guid: 563145e25d586cf4c9cf0c9e88abcaf6,
         type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target

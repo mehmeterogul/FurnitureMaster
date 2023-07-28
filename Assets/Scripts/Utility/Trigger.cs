@@ -10,8 +10,8 @@ public class Trigger : MonoBehaviour
     [SerializeField] private float _imageFillRate = 1f;
     [SerializeField] private float _maxFillValue = 100f;
     [SerializeField] private float _currentFillValue = 0f;
-    private bool _canDecrease = false;
-
+    protected bool _canDecrease = false;
+    protected bool _canTrigger = false;
     public UnityEvent OnFillComplete;
 
     void Update()
@@ -26,13 +26,17 @@ public class Trigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         _canDecrease = false;
+        _canTrigger = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (!_canTrigger)
+            return;
+
         _currentFillValue += _imageFillRate;
         UpdateCircleSpriteFillAmounth();
 
@@ -51,9 +55,10 @@ public class Trigger : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
+    public virtual void OnTriggerExit(Collider other)
     {
         _canDecrease = true;
+        _canTrigger = true;
     }
 
     public void UpdateCircleSpriteFillAmounth()
