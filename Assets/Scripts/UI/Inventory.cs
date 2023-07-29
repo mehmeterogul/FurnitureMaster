@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     private PlayerController _player;
     private Game_Manager _manager;
 
-    private int _moneyAmount;
+    private int _moneyAmount = 9999;
     public TextMeshProUGUI moneyText;
     public int MaxCapacity = 99;
 
