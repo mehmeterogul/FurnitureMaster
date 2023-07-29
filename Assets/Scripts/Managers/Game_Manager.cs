@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Game_Manager:MonoBehaviour
 {
@@ -35,4 +36,20 @@ public class Game_Manager:MonoBehaviour
     {
         return CurrentLevel_Ref;
     }
+
+
+    // DEBUG
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            List<ItemUI> itemUIList = Inventory_Ref.GetItemList();
+            foreach (ItemUI itemUI in itemUIList)
+            {
+                Inventory_Ref.IncreaseItem(itemUI.Properties, 100);
+            }
+            Inventory_Ref.IncreaseMoney(100);
+        }
+    }
+    // DEBUG
 }

@@ -54,7 +54,7 @@ public class Customer : MonoBehaviour
     public IEnumerator HideCoroutine()
     {
         _isNextCustomer = false;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }
 
