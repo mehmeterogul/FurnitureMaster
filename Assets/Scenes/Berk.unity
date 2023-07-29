@@ -1878,12 +1878,17 @@ PrefabInstance:
     - target: {fileID: 2183859985722415944, guid: 9db6a163628ae864c917a93187e104f9,
         type: 3}
       propertyPath: SpawnPeriod
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2183859985722415944, guid: 9db6a163628ae864c917a93187e104f9,
         type: 3}
       propertyPath: current_level
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183859985722415944, guid: 9db6a163628ae864c917a93187e104f9,
+        type: 3}
+      propertyPath: maxResourceInRegion
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4673468582290707044, guid: 9db6a163628ae864c917a93187e104f9,
         type: 3}
@@ -5166,6 +5171,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 475075387796301333}
     m_Modifications:
+    - target: {fileID: 559627808167249833, guid: fb40ceb11fab7b042b6ae7a16c63009d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a8dec2010462afa46a5e3ccce737b181,
+        type: 3}
     - target: {fileID: 1671160426259563547, guid: fb40ceb11fab7b042b6ae7a16c63009d,
         type: 3}
       propertyPath: m_Name
@@ -5186,6 +5197,12 @@ PrefabInstance:
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ResourceSpawner, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 6587692421914160668, guid: fb40ceb11fab7b042b6ae7a16c63009d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eb78645ab3f238942906abfdc152f3fd,
+        type: 3}
     - target: {fileID: 6936588572565154843, guid: fb40ceb11fab7b042b6ae7a16c63009d,
         type: 3}
       propertyPath: m_LocalPosition.x

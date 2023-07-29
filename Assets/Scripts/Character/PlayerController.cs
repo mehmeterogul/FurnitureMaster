@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         _controller = gameObject.GetComponent<CharacterController>();
         status = new Status();
         status.Movement_Stat = Status.MovementStatus.Idle;
+        status.Gather_Stat = Status.GatherStatus.NotGathering;
 
     }
     private void Move()
@@ -61,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (status.Gather_Stat == Status.GatherStatus.NotGathering)
         {
+            anim.SetBool("isGathering", true);
             if (resource is Abstract_Tree)
                 Cut(resource);
             else
@@ -70,13 +72,11 @@ public class PlayerController : MonoBehaviour
     public void Dig(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Digging;
-        anim.SetBool("isGathering", true);
 
     }
     public void Cut(Abstract_Resource resource)
     {
         status.Gather_Stat = Status.GatherStatus.Cutting;
-        anim.SetBool("isGathering", true);
     }
     public void LeaveGathering()
     {

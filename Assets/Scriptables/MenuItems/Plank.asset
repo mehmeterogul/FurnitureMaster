@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Plank
   m_EditorClassIdentifier: 
   Item_name: Plank
-  Icon: {fileID: 21300000, guid: b39c06da262defb4399c409b2a23ce1a, type: 3}
+  Icon: {fileID: 21300000, guid: a8dec2010462afa46a5e3ccce737b181, type: 3}

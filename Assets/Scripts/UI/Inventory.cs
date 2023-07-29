@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
 
     private int _moneyAmount;
     public TextMeshProUGUI moneyText;
+    public int MaxCapacity = 99;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class Inventory : MonoBehaviour
     {
         // Check if the item already exists in the list
         ItemUI existingItemUI = Items.Find(itemUI => itemUI.Properties == item);
-        if (existingItemUI != null)
+        if (existingItemUI != null && existingItemUI.amount < 99)
         {
             // If the item exists, increase its amount
             existingItemUI.Increase(amount);
