@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class CollectedResourceImage : MonoBehaviour
     private Vector3 _targetPos;
     private bool _isActive;
     private ItemUI _itemUI;
+    private float _activeTime;
 
     private void Update()
     {
@@ -17,9 +19,16 @@ public class CollectedResourceImage : MonoBehaviour
             _targetPos = _itemUI.transform.position;
             Vector3 newTargetPos = _collectedResourceSpawner.GetTargetWorldPosition(_targetPos);
 
+            _activeTime += Time.deltaTime;
+
+            float speed = 5f;
             if (Vector2.Distance(transform.position, newTargetPos) > 1f)
             {
-                transform.position = Vector3.Lerp(transform.position, newTargetPos, Time.deltaTime * 5f);
+                float totalAnimationTime = 0.7f;
+                if (_activeTime >= totalAnimationTime)
+                    speed = 10f;
+
+                transform.position = Vector3.Lerp(transform.position, newTargetPos, Time.deltaTime * speed);
             }
             else
             {
@@ -34,5 +43,6 @@ public class CollectedResourceImage : MonoBehaviour
         _isActive = true;
         _itemUI = itemUI;
         transform.position = spawnPosition;
+        _activeTime = 0f;
     }
 }
