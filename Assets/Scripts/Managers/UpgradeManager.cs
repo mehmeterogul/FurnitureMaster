@@ -34,10 +34,6 @@ public class UpgradeManager : MonoBehaviour
         _manager = Game_Manager.Instance;
         _player = _manager.Player_Ref;
     }
-    public void UnlockArea1()
-    {
-        // ..
-    }
 
     public void UpgradeAxe()
     {
@@ -46,13 +42,13 @@ public class UpgradeManager : MonoBehaviour
 
     public void UnlockPickaxe()
     {
-        _manager.CurrentLevel_Ref = 2;
+        _furnitureTrigger.gameObject.SetActive(true);
     }
 
     public void UpgradePickaxe()
     {
-        _manager.CurrentLevel_Ref = 3;
         _player.DigPower = 2;
+        _goldFurnitureTrigger.gameObject.SetActive(true);
     }
 
     public void UnlockSawmill()
@@ -65,11 +61,13 @@ public class UpgradeManager : MonoBehaviour
     {
         Vector3 instantiationPosition = new Vector3(_furnitureTrigger.position.x + xPositionArrangment, _furniturePrefab.position.y, _furnitureTrigger.position.z);
         Instantiate(_furniturePrefab, instantiationPosition, Quaternion.identity);
+        _manager.CurrentLevel_Ref = 2;
     }
 
     public void UnlockGoldFurniture()
     {
         Vector3 instantiationPosition = new Vector3(_goldFurnitureTrigger.position.x + xPositionArrangment, _goldFurniturePrefab.position.y, _goldFurnitureTrigger.position.z);
         Instantiate(_goldFurniturePrefab, instantiationPosition, Quaternion.identity);
+        _manager.CurrentLevel_Ref = 3;
     }
 }

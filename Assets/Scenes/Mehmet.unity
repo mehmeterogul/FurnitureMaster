@@ -3902,6 +3902,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 801442296}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1726052717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2183859985722415944, guid: 9db6a163628ae864c917a93187e104f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1343658393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712594fbd6548754bac40e881aef61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1756132839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4848,6 +4860,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6534462369953748637, guid: fb40ceb11fab7b042b6ae7a16c63009d,
+        type: 3}
+      propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1726052717}
     - target: {fileID: 6936588572565154843, guid: fb40ceb11fab7b042b6ae7a16c63009d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4903,16 +4920,6 @@ PrefabInstance:
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1370748509}
-    - target: {fileID: 7590254891075011092, guid: fb40ceb11fab7b042b6ae7a16c63009d,
-        type: 3}
-      propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UnlockArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 7590254891075011092, guid: fb40ceb11fab7b042b6ae7a16c63009d,
-        type: 3}
-      propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ResourceSpawner, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
