@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00be0d45ade764043bdf402634b4bbbc, type: 3}
   m_Name: Tree 3
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 263897383219508583, guid: 1dfb215061339d348b96871f2d6b53fe, type: 3}
+  Prefab: {fileID: 2517096979615854928, guid: 13d33d0209cfa4d45a4ae119e4a1b52b, type: 3}
   AvailableLevel: 1
