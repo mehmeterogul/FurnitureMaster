@@ -13,9 +13,12 @@ public class ResourceSpawner : MonoBehaviour
     public int current_level = 1;
     public bool unlocked = false;
 
+    private float spawnDistance = 3f;
+
     private List<ResourcePrefabSO> _resourcePrefabs;
     private List<Transform> _spawnTransforms;
     private List<SpawnPoint> _spawnPoints;
+    private PlayerController _player;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,8 @@ public class ResourceSpawner : MonoBehaviour
 
     private void InitializeComponents()
     {
+        _player = Game_Manager.Instance.Player_Ref;
+
         _spawnTransforms = GetDirectChildTransforms();
         _resourcePrefabs = Game_Manager.Instance.ResourceManager_Ref.ResourcePrefabs;
 
@@ -53,6 +58,19 @@ public class ResourceSpawner : MonoBehaviour
     {
         point.empty = true;
         Destroy(point.spawnedObject);
+    }
+    private bool CheckPlayer(Vector3 pointPos)
+    {
+        Vector3 playerPos = _player.transform.position;
+
+        // Check if the player is inside the spawn point's collider
+        float distanceToPlayer = Vector3.Distance(playerPos, pointPos);
+        if (distanceToPlayer <= spawnDistance)
+        {
+            // If the player is inside the collider, don't spawn a resource here
+            return true;
+        }
+        return false;
     }
     public void GenerateRandomResource()
     {
@@ -80,6 +98,12 @@ public class ResourceSpawner : MonoBehaviour
         }
 
         SpawnPoint randomSpawnPoint = emptySpawnPoints[Random.Range(0, emptySpawnPoints.Count)];
+        //if player inside area don't spawn
+        if (CheckPlayer(randomSpawnPoint.pos))
+        {
+            return;
+        }
+
         randomSpawnPoint.empty = false; // Mark the spawn point as non-empty
 
         //random offset
