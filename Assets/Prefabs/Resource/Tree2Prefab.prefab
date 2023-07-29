@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134ba03b2d84df744a6524ea2b0729c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 10
-  Amount: 10
+  Health: 20
+  Amount: 20
   _player: {fileID: 0}
   _inv: {fileID: 0}
   _manager: {fileID: 0}

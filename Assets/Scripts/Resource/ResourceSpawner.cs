@@ -84,7 +84,7 @@ public class ResourceSpawner : MonoBehaviour
         if (CheckEmptySpace())
             return;
 
-        List<ResourcePrefabSO> eligibleResources = _resourcePrefabs.FindAll(resource => resource.AvailableLevel <= current_level);
+        List<ResourcePrefabSO> eligibleResources = _resourcePrefabs.FindAll(resource => resource.AvailableLevel == current_level);
 
         // Choose a random resource prefab from the list
         ResourcePrefabSO randomResource = eligibleResources[Random.Range(0, eligibleResources.Count)];
