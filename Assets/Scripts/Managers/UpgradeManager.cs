@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,20 +47,29 @@ public class UpgradeManager : MonoBehaviour
     public void UnlockSawmill()
     {
         Vector3 instantiationPosition = new Vector3(_sawwillTrigger.position.x + xPositionArrangment, _sawmillPrefab.position.y, _sawwillTrigger.position.z);
-        Instantiate(_sawmillPrefab, instantiationPosition, Quaternion.identity);
+        Transform sawmillTransform = Instantiate(_sawmillPrefab, instantiationPosition, Quaternion.identity);
+        PlaySpawnAnimation(sawmillTransform);
     }
 
     public void UnlockFurniture()
     {
         Vector3 instantiationPosition = new Vector3(_furnitureTrigger.position.x + xPositionArrangment, _furniturePrefab.position.y, _furnitureTrigger.position.z);
-        Instantiate(_furniturePrefab, instantiationPosition, Quaternion.identity);
+        Transform furnitureTransform = Instantiate(_furniturePrefab, instantiationPosition, Quaternion.identity);
+        PlaySpawnAnimation(furnitureTransform);
         _manager.CurrentLevel_Ref = 2;
     }
 
     public void UnlockGoldFurniture()
     {
         Vector3 instantiationPosition = new Vector3(_goldFurnitureTrigger.position.x + xPositionArrangment, _goldFurniturePrefab.position.y, _goldFurnitureTrigger.position.z);
-        Instantiate(_goldFurniturePrefab, instantiationPosition, Quaternion.identity);
+        Transform goldFurnitureTransform = Instantiate(_goldFurniturePrefab, instantiationPosition, Quaternion.identity);
+        PlaySpawnAnimation(goldFurnitureTransform);
         _manager.CurrentLevel_Ref = 3;
+    }
+
+    private void PlaySpawnAnimation(Transform transform)
+    {
+        transform.localScale = Vector3.one * 0.1f;
+        transform.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutSine);
     }
 }

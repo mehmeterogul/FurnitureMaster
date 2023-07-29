@@ -16,6 +16,8 @@ public class Refinery : MonoBehaviour
     private Inventory _inv;
     private Game_Manager _manager;
 
+    private CollectedResourceSpawner _collectedResourceSpawner;
+
     void Start()
     {
         InitializeComponents();
@@ -26,6 +28,7 @@ public class Refinery : MonoBehaviour
         _manager = Game_Manager.Instance;
         _player = _manager.Player_Ref;
         _inv = _manager.Inventory_Ref;
+        _collectedResourceSpawner = _manager.CollectedResourceSpawner_Ref;
     }
 
 
@@ -49,6 +52,7 @@ public class Refinery : MonoBehaviour
 
         // Step 3: Increase the output item quantity
         _inv.IncreaseItem(output_item, ConversionPower);
+        _collectedResourceSpawner.SpawnResourceImage(output_item, transform.position);
     }
 
     public bool CanRefine()

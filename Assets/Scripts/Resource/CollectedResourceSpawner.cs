@@ -34,6 +34,18 @@ public class CollectedResourceSpawner : MonoBehaviour
                 spawnedResource = _collectedResourcePool.GetNextGoldOre();
                 itemIndex = 2;
                 break;
+            case "Plank":
+                spawnedResource = _collectedResourcePool.GetNextPlank();
+                itemIndex = 3;
+                break;
+            case "IronIngot":
+                spawnedResource = _collectedResourcePool.GetNextIronIngot();
+                itemIndex = 4;
+                break;
+            case "GoldIngot":
+                spawnedResource = _collectedResourcePool.GetNextGoldIngot();
+                itemIndex = 5;
+                break;
         }
 
         ItemUI itemUI = itemList[itemIndex];

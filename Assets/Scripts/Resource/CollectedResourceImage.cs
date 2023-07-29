@@ -22,9 +22,9 @@ public class CollectedResourceImage : MonoBehaviour
             _activeTime += Time.deltaTime;
 
             float speed = 5f;
-            if (Vector2.Distance(transform.position, newTargetPos) > 1f)
+            if (Vector2.Distance(transform.position, newTargetPos) > 0.75f)
             {
-                float totalAnimationTime = 0.7f;
+                float totalAnimationTime = 0.6f;
                 if (_activeTime >= totalAnimationTime)
                     speed = 10f;
 
