@@ -113,6 +113,12 @@ public class PlayerController : MonoBehaviour
         pickaxe.SetActive(true);
 
     }
+    public void Disarm()
+    {
+        axe.SetActive(false);
+        pickaxe.SetActive(false);
+
+    }
 
     // TEMP
     public void HoldCraftedObject(Transform craftedObjectPrefab)
