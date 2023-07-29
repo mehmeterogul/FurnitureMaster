@@ -26,7 +26,7 @@ public class ResourceSpawner : MonoBehaviour
         
     }
 
-    private void UnlockArea()
+    public void UnlockArea()
     {
         Destroy(block);
         InvokeRepeating(nameof(GenerateRandomResource), SpawnPeriod, SpawnPeriod);
