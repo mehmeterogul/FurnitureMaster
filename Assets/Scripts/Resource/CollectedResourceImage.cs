@@ -17,7 +17,7 @@ public class CollectedResourceImage : MonoBehaviour
             _targetPos = _itemUI.transform.position;
             Vector3 newTargetPos = _collectedResourceSpawner.GetTargetWorldPosition(_targetPos);
 
-            if (Vector2.Distance(transform.position, newTargetPos) > 0.5f)
+            if (Vector2.Distance(transform.position, newTargetPos) > 1f)
             {
                 transform.position = Vector3.Lerp(transform.position, newTargetPos, Time.deltaTime * 5f);
             }
