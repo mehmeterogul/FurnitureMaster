@@ -73,7 +73,7 @@ public class ResourceSpawner : MonoBehaviour
         // Choose a random empty spawn point
         List<SpawnPoint> emptySpawnPoints = _spawnPoints.FindAll(spawnPoint => spawnPoint.empty);
 
-        if (emptySpawnPoints.Count <=  maxResourceInRegion)
+        if (emptySpawnPoints.Count ==  maxResourceInRegion)
         {
             // Don't spawn any resources if there are no empty spawn points
             return;
