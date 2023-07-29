@@ -17,9 +17,9 @@ MonoBehaviour:
   requiredResourceDictionary:
   - resource: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
     amount: 6
-  - resource: {fileID: 11400000, guid: 6a2fb493d5e1216498f9b87b61e8d379, type: 2}
-    amount: 18
   - resource: {fileID: 11400000, guid: d38b6aff37d33074eae57ef3da2a09ed, type: 2}
+    amount: 18
+  - resource: {fileID: 11400000, guid: 2d665c81e11bc844aae11d45008ac405, type: 2}
     amount: 22
   OrderPayment: 320
   OrderPrefab: {fileID: 1636458855942537730, guid: 9c3421e664da0ff46b0e5e3d4a3b83f7,
