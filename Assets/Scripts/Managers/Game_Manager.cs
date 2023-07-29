@@ -8,6 +8,8 @@ public class Game_Manager:MonoBehaviour
 
     public ResourceManager ResourceManager_Ref;
 
+    public CollectedResourceSpawner CollectedResourceSpawner_Ref;
+
     private static Game_Manager _instance;
 
     public static Game_Manager Instance

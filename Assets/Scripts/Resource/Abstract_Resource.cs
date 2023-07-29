@@ -18,6 +18,8 @@ public abstract class Abstract_Resource : MonoBehaviour
 
     protected SpawnPoint _spawnPoint;
 
+    private CollectedResourceSpawner collectedResourceSpawner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,7 @@ public abstract class Abstract_Resource : MonoBehaviour
         _manager = Game_Manager.Instance;
         _player = _manager.Player_Ref;
         _inv = _manager.Inventory_Ref;
+        collectedResourceSpawner = _manager.CollectedResourceSpawner_Ref;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -67,7 +70,7 @@ public abstract class Abstract_Resource : MonoBehaviour
         Health -= damage;
         _inv.IncreaseItem(output_item,damage);
         CheckDestroy();
-
+        collectedResourceSpawner.SpawnResourceImage(output_item, transform.position);
         transform.DOShakeScale(0.2f, 0.2f);
     }
     public void CheckDestroy()

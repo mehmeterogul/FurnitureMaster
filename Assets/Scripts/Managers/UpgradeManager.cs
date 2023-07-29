@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    /*
-    private bool _isPickaxeUnlocked;
-    private bool _isPickaxeUpgraded;
-    private bool _isSawmillUnlocked;
-    private bool _isFurnitureUnlocked;
-    private bool _isGoldFurnitureUnlocked;
-    */
-
     [Header("Refinement Prefabs")]
     [SerializeField] private Transform _sawmillPrefab;
     [SerializeField] private Transform _furniturePrefab;

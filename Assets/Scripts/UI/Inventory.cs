@@ -102,4 +102,9 @@ public class Inventory : MonoBehaviour
     {
         return _moneyAmount;
     }
+
+    public List<ItemUI> GetItemList()
+    {
+        return Items;
+    }
 }
