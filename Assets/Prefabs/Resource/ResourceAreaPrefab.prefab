@@ -89,7 +89,7 @@ MonoBehaviour:
   SpawnPeriod: 1
   RandomMovementOffsetValue: 0.5
   RandomRotationOffsetValue: 180
-  current_level: 1
+  current_level: 3
   unlocked: 0
 --- !u!1 &3515354174541951985
 GameObject:
@@ -132,6 +132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4034942148187836850}
   - component: {fileID: 8316924927902365809}
+  - component: {fileID: 5716788485460803304}
+  - component: {fileID: 4233849493308549155}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -173,8 +175,50 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15.910385, y: 3.0559254, z: 15.9554}
-  m_Center: {x: -0.013895035, y: 1.5896773, z: -0.046084404}
+  m_Size: {x: 13.1, y: 3.05, z: 15.9}
+  m_Center: {x: 1.36, y: 1.6, z: -0.04}
+--- !u!65 &5716788485460803304
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001763232563708359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.8050718, y: 3.05, z: 6.3250065}
+  m_Center: {x: -6.620237, y: 1.6, z: 4.7474966}
+--- !u!65 &4233849493308549155
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001763232563708359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.8050718, y: 3.05, z: 5.3434367}
+  m_Center: {x: -6.620237, y: 1.6, z: -5.21902}
 --- !u!1 &4064536860245846738
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +373,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3952518109bfce849b917ba280812103, type: 2}
+  - {fileID: 2100000, guid: 1400854d4faa5494bab1ae2f1c3c3326, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
