@@ -141,6 +141,7 @@ public class CraftTable : MonoBehaviour
                 DecreaseResources();
                 ClearRequiredMaterialVisuals();
                 AudioManager.Instance.PlaySound(_craftCompleteSound);
+                _player.CraftExit();
 
                 _canTrigger = false;
                 _currentFillValue = 0;
