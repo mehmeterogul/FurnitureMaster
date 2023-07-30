@@ -23,11 +23,4 @@ public class RefineryTrigger : Trigger
     {
         _canTrigger = _refinery.CanRefine();
     }
-
-    public override void OnTriggerExit(Collider other)
-    {
-        _canDecrease = true;
-        _canTrigger = false;
-
-    }
 }

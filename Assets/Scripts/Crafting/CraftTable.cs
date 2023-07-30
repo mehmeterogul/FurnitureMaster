@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,13 +25,18 @@ public class CraftTable : MonoBehaviour
     [SerializeField] private Transform _requiredMaterialUIPrefab;
 
     Inventory _inventory;
+    private PlayerController _player;
 
     [SerializeField] private AudioClip _craftCompleteSound;
 
     private void Start()
     {
         _orderImage.gameObject.SetActive(false);
-        _inventory = Game_Manager.Instance.Inventory_Ref;
+
+        Game_Manager _manager = Game_Manager.Instance;
+        _inventory = _manager.Inventory_Ref;
+        _player = _manager.Player_Ref;
+
     }
 
     void Update()
@@ -86,8 +92,9 @@ public class CraftTable : MonoBehaviour
 
         _canDecrease = false;
         _canTrigger = true;
+        //trigger animation
+        _player.CraftStart();
     }
-
     private bool IsResourceEnough()
     {
         if (!_currentOrder)
@@ -146,6 +153,7 @@ public class CraftTable : MonoBehaviour
     {
         _canTrigger = true;
         _canDecrease = true;
+        _player.CraftExit();
     }
 
     public void UpdateCircleSpriteFillAmounth()

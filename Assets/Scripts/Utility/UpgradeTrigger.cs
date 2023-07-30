@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class UpgradeTrigger : Trigger
 {
@@ -22,10 +23,14 @@ public class UpgradeTrigger : Trigger
 
     private void Start()
     {
+        InitializeComponents();
+    }
+    private void InitializeComponents()
+    {
         _inventory = Game_Manager.Instance.Inventory_Ref;
         _price.text = _requiredMoney.amount.ToString();
 
-        if(_needExtraResource)
+        if (_needExtraResource)
         {
             _requiredMaterialUI.gameObject.SetActive(true);
             _requiredMaterialUI.SetText(_requiredResource.amount.ToString());
@@ -66,6 +71,7 @@ public class UpgradeTrigger : Trigger
 
         if (willDestroy)
         {
+            ExitCraftingAnim();
             Destroy(gameObject, 0.1f);
         }
     }
