@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e747b005f47f78499b98f1372114578, type: 3}
+  m_Name: GoldDesk
+  m_EditorClassIdentifier: 
+  OrderName: GoldDesk
+  OrderIcon: {fileID: 21300000, guid: 7a0815b46af54874bb471243c645048d, type: 3}
+  requiredResourceDictionary:
+  - resource: {fileID: 11400000, guid: a366b4f8dc0872248be932a837c6817d, type: 2}
+    amount: 4
+  - resource: {fileID: 11400000, guid: ad22a7e70e3395f498550cc4e408f113, type: 2}
+    amount: 5
+  - resource: {fileID: 11400000, guid: 2d665c81e11bc844aae11d45008ac405, type: 2}
+    amount: 8
+  OrderPayment: 250
+  OrderPrefab: {fileID: 3918606421928062250, guid: a098164f433bdfd41818664cb6a9d4d6,
+    type: 3}
