@@ -6,9 +6,11 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioSource _sfxAudioSource;
+    [SerializeField] private AudioSource _musicAudioSource;
 
     private bool _isSoundActive = true;
+    private bool _isMusicActive = true;
 
     private void Awake()
     {
@@ -25,11 +27,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(AudioClip clip)
     {
-        _audioSource.PlayOneShot(clip);
+        if(_isSoundActive)
+            _sfxAudioSource.PlayOneShot(clip);
     }
 
     public void ToggleSound()
     {
         _isSoundActive = !_isSoundActive;
+        _isMusicActive = !_isMusicActive;
     }
 }
