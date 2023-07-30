@@ -15,7 +15,7 @@ MonoBehaviour:
   OrderName: Hammer
   OrderIcon: {fileID: 21300000, guid: 5dfc7b812a21fb743ae111f4957eacef, type: 3}
   requiredResourceDictionary:
-  - resource: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
+  - resource: {fileID: 11400000, guid: a366b4f8dc0872248be932a837c6817d, type: 2}
     amount: 4
   - resource: {fileID: 11400000, guid: ad22a7e70e3395f498550cc4e408f113, type: 2}
     amount: 2

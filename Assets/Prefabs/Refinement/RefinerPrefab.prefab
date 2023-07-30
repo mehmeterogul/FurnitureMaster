@@ -203,6 +203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7781081915707447641, guid: 94b5b555d04256e48ad81d63c9dca77a,
         type: 3}
+      propertyPath: _imageFillRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781081915707447641, guid: 94b5b555d04256e48ad81d63c9dca77a,
+        type: 3}
       propertyPath: OnFillComplete.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
