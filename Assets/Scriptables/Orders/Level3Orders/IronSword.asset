@@ -16,9 +16,9 @@ MonoBehaviour:
   OrderIcon: {fileID: 21300000, guid: b191a4f4939b299458c80ebc701ce5c9, type: 3}
   requiredResourceDictionary:
   - resource: {fileID: 11400000, guid: a366b4f8dc0872248be932a837c6817d, type: 2}
-    amount: 12
+    amount: 5
   - resource: {fileID: 11400000, guid: ad22a7e70e3395f498550cc4e408f113, type: 2}
     amount: 6
-  OrderPayment: 114
+  OrderPayment: 380
   OrderPrefab: {fileID: 1636458855942537730, guid: b44f101af6ada3a48ae5e652a41a10a5,
     type: 3}

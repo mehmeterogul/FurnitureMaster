@@ -9,6 +9,12 @@ public class StartGameButton : MonoBehaviour
     
     public void LoadGame()
     {
+        StartCoroutine(ChangeScene());
+    }
+
+    private IEnumerator ChangeScene()
+    {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
     }
 }

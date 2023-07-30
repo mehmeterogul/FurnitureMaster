@@ -8,9 +8,12 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource _sfxAudioSource;
     [SerializeField] private AudioSource _musicAudioSource;
+    [SerializeField] private AudioSource _mainMenuAudioSource;
 
     private bool _isSoundActive = true;
     private bool _isMusicActive = true;
+
+    private float transitionDuration = 1f;
 
     private void Awake()
     {
@@ -25,6 +28,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _mainMenuAudioSource.Play();
+    }
+
     public void PlaySound(AudioClip clip)
     {
         if(_isSoundActive)
@@ -35,5 +43,29 @@ public class AudioManager : MonoBehaviour
     {
         _isSoundActive = !_isSoundActive;
         _isMusicActive = !_isMusicActive;
+    }
+
+    public void StartTransition()
+    {
+        StartCoroutine(Crossfade());
+    }
+
+    private IEnumerator Crossfade()
+    {
+        float elapsedTime = 0;
+
+        while (elapsedTime < transitionDuration)
+        {
+            float t = elapsedTime / transitionDuration;
+            _mainMenuAudioSource.volume = 1 - t;
+            _musicAudioSource.volume = t;
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        _mainMenuAudioSource.Stop();
+        _mainMenuAudioSource.volume = 1f;
+        _musicAudioSource.volume = 1f;
+        _musicAudioSource.Play();
     }
 }
