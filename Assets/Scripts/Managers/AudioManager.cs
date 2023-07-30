@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource _audioSource;
 
+    private bool _isSoundActive = true;
+
     private void Awake()
     {
         if(Instance == null)
@@ -24,5 +26,10 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         _audioSource.PlayOneShot(clip);
+    }
+
+    public void ToggleSound()
+    {
+        _isSoundActive = !_isSoundActive;
     }
 }
