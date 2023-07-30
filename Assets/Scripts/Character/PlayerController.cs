@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 _playerVelocity;
     private CharacterController _controller;
 
+    [SerializeField] private FloatingJoystick _joystick;
+
 
     // TEMP
     [SerializeField] private Transform _holdPosition;
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Move()
     {
-        Vector3 move = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector3 move = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
         _controller.Move(move * Time.deltaTime * PlayerSpeed);
 
         if (move != Vector3.zero)
