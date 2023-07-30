@@ -25,6 +25,8 @@ public class CraftTable : MonoBehaviour
 
     Inventory _inventory;
 
+    [SerializeField] private AudioClip _craftCompleteSound;
+
     private void Start()
     {
         _orderImage.gameObject.SetActive(false);
@@ -131,6 +133,7 @@ public class CraftTable : MonoBehaviour
                 Game_Manager.Instance.Player_Ref.HoldCraftedObject(_currentOrder.OrderPrefab);
                 DecreaseResources();
                 ClearRequiredMaterialVisuals();
+                AudioManager.Instance.PlaySound(_craftCompleteSound);
 
                 _canTrigger = false;
                 _currentFillValue = 0;

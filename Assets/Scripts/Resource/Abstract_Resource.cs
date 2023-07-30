@@ -20,6 +20,8 @@ public abstract class Abstract_Resource : MonoBehaviour
 
     private CollectedResourceSpawner collectedResourceSpawner;
 
+    [SerializeField] private List<AudioClip> _hitSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,8 @@ public abstract class Abstract_Resource : MonoBehaviour
         CheckDestroy();
         collectedResourceSpawner.SpawnResourceImage(output_item, transform.position);
         transform.DOShakeScale(0.2f, 0.2f);
+        AudioClip randomClip = _hitSounds[UnityEngine.Random.Range(0, _hitSounds.Count)];
+        AudioManager.Instance.PlaySound(randomClip);
     }
     public void CheckDestroy()
     {

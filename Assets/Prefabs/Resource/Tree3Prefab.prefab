@@ -75,6 +75,9 @@ MonoBehaviour:
   _manager: {fileID: 0}
   output_item: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
   _playerLeft: 0
+  _hitSounds:
+  - {fileID: 8300000, guid: 84c8874fcd0e5c64fbda5cc8ffa68a18, type: 3}
+  - {fileID: 8300000, guid: 7638c4483f952d84887b4483b88eb94c, type: 3}
 --- !u!1 &429006150445371812
 GameObject:
   m_ObjectHideFlags: 0

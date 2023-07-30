@@ -151,6 +151,7 @@ MonoBehaviour:
   _requiredMaterialsUIParent: {fileID: 1947844778587228671}
   _requiredMaterialUIPrefab: {fileID: 4259478851727091676, guid: fcb612e9f75973c40ba99fe18c70736d,
     type: 3}
+  _craftCompleteSound: {fileID: 8300000, guid: 78fbce6310f1aa74ebf937470882dc44, type: 3}
 --- !u!1 &5934246010514936525
 GameObject:
   m_ObjectHideFlags: 0

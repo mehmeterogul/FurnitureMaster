@@ -468,6 +468,9 @@ MonoBehaviour:
   _manager: {fileID: 0}
   output_item: {fileID: 11400000, guid: d38b6aff37d33074eae57ef3da2a09ed, type: 2}
   _playerLeft: 0
+  _hitSounds:
+  - {fileID: 8300000, guid: 984ee884d5b681442b9f1ca65a215d16, type: 3}
+  - {fileID: 8300000, guid: 5954904c013a4f447ad9cd85ee2b35f0, type: 3}
 --- !u!65 &6690097189726558003
 BoxCollider:
   m_ObjectHideFlags: 0

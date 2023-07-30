@@ -14,6 +14,8 @@ public class CustomerSpawner : MonoBehaviour
     private int _maxCustomerCount;
     [SerializeField] private List<Transform> _customersOnQueue = new List<Transform>();
 
+    [SerializeField] private AudioClip _orderCompleteSound;
+
     private void Start()
     {
         _orderController = FindObjectOfType<OrderController>();
@@ -72,6 +74,8 @@ public class CustomerSpawner : MonoBehaviour
         StartCoroutine(firstCustomer.HideCoroutine());
         firstCustomer.OnCustomerArrived -= Customer_OnCustomerArrived;
         SortCustomerQueue();
+
+        AudioManager.Instance.PlaySound(_orderCompleteSound);
     }
 
     private void SortCustomerQueue()
