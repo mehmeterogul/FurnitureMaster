@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e747b005f47f78499b98f1372114578, type: 3}
-  m_Name: Table
+  m_Name: WoodDoor
   m_EditorClassIdentifier: 
-  OrderName: Table
-  OrderIcon: {fileID: 21300000, guid: 3f43835b1cd763648bfc13419b7ae838, type: 3}
+  OrderName: WoodDoor
+  OrderIcon: {fileID: 21300000, guid: 527fd9217cc04f743b03fabed2af8199, type: 3}
   requiredResourceDictionary:
-  - resource: {fileID: 11400000, guid: 038db18e3cf709e4497df9ae8f7979f2, type: 2}
+  - resource: {fileID: 11400000, guid: a366b4f8dc0872248be932a837c6817d, type: 2}
     amount: 20
-  OrderPayment: 70
-  OrderPrefab: {fileID: 1929750229890594366, guid: 0c0bc21c25c908b4c9bd3f952f9b816f,
+  OrderPayment: 150
+  OrderPrefab: {fileID: 4358383567501898473, guid: f039292d776f38348a59a5357a3f32b7,
     type: 3}

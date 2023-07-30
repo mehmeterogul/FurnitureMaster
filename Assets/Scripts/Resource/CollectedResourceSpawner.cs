@@ -18,6 +18,7 @@ public class CollectedResourceSpawner : MonoBehaviour
     {
         Transform spawnedResource;
 
+        
         int itemIndex = 0;
         switch (item.Item_name)
         {
