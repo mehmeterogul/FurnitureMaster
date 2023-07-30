@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -15,7 +17,7 @@ public class Trigger : MonoBehaviour
     public UnityEvent OnFillComplete;
 
     [SerializeField] private AudioClip _clip;
-
+   
     void Update()
     {
         if (_canDecrease)
@@ -32,6 +34,7 @@ public class Trigger : MonoBehaviour
     {
         _canDecrease = false;
         _canTrigger = true;
+        EnterCraftingAnim();
     }
 
     private void OnTriggerStay(Collider other)
@@ -58,10 +61,20 @@ public class Trigger : MonoBehaviour
 
     }
 
+    protected void EnterCraftingAnim()
+    {
+        Game_Manager.Instance.Player_Ref.CraftStart();
+    }
+    protected void ExitCraftingAnim()
+    {
+        Game_Manager.Instance.Player_Ref.CraftExit();
+    }
+
     public virtual void OnTriggerExit(Collider other)
     {
         _canDecrease = true;
         _canTrigger = true;
+        ExitCraftingAnim();
     }
 
     public void UpdateCircleSpriteFillAmounth()

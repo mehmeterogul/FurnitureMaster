@@ -119,6 +119,15 @@ public class PlayerController : MonoBehaviour
         pickaxe.SetActive(false);
 
     }
+    public void CraftStart()
+    {
+        anim.SetBool("isCrafting", true);
+    }
+    public void CraftExit()
+    {
+        anim.SetBool("isCrafting", false);
+    }
+
 
     // TEMP
     public void HoldCraftedObject(Transform craftedObjectPrefab)

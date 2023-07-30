@@ -13,7 +13,7 @@ public class ResourceSpawner : MonoBehaviour
     public int current_level = 1;
     public bool unlocked = false;
 
-    private float _spawnDistance = 4f;
+    private float _spawnDistance = 3f;
 
     private List<ResourcePrefabSO> _resourcePrefabs;
     private List<Transform> _spawnTransforms;
