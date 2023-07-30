@@ -149,6 +149,8 @@ MonoBehaviour:
   OnFillComplete:
     m_PersistentCalls:
       m_Calls: []
+  _clip: {fileID: 8300000, guid: 53668832b4738f042977440e77f01780, type: 3}
+  _refinery: {fileID: 0}
 --- !u!1 &4443830980672443446
 GameObject:
   m_ObjectHideFlags: 0

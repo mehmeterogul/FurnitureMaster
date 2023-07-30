@@ -157,6 +157,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _clip: {fileID: 8300000, guid: 2c5cd75139451774385954e7fc3a0097, type: 3}
   _moneyIcon: {fileID: 6889423443096508798}
   _price: {fileID: 8077473997212368934}
   _requiredMaterialUI: {fileID: 1045428913171595140}

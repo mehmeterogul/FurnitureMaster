@@ -167,4 +167,9 @@ public class CraftTable : MonoBehaviour
     {
         return _currentOrder;
     }
+
+    public bool CanCraft()
+    {
+        return _canCraft;
+    }
 }

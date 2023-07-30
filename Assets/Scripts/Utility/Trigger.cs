@@ -14,6 +14,8 @@ public class Trigger : MonoBehaviour
     protected bool _canTrigger = false;
     public UnityEvent OnFillComplete;
 
+    [SerializeField] private AudioClip _clip;
+
     void Update()
     {
         if (_canDecrease)
@@ -47,6 +49,7 @@ public class Trigger : MonoBehaviour
 
             OnFillComplete?.Invoke();
             OnComplete();
+            AudioManager.Instance.PlaySound(_clip);
         }
     }
 

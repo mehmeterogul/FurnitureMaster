@@ -248,6 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _orderController: {fileID: 1219510146742443933}
   _craftTable: {fileID: 0}
+  _orderInteractSound: {fileID: 8300000, guid: 1043c8d8c846de8469b2d1ad04a0c504, type: 3}
 --- !u!1 &5475326392945175050
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class OrderTrigger : MonoBehaviour
     [SerializeField] private OrderController _orderController;
     [SerializeField] private CraftTable _craftTable;
 
+    [SerializeField] private AudioClip _orderInteractSound;
+
     private void Awake()
     {
         if (!_orderController)
@@ -19,6 +21,9 @@ public class OrderTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!_craftTable.CanCraft() && !_craftTable.HasOrderCrafted())
+            AudioManager.Instance.PlaySound(_orderInteractSound);
+
         if (!_orderController.HasOrderTaken())
             return;
 
