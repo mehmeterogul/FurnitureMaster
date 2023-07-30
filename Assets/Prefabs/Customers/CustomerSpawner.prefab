@@ -296,7 +296,7 @@ MonoBehaviour:
   - {fileID: 7286158390276505698}
   - {fileID: 4273841408812767504}
   _customersOnQueue: []
-  _orderCompleteSound: {fileID: 8300000, guid: f6e1ee20b258fa44b8a48f3ba9eed776, type: 3}
+  _orderCompleteSound: {fileID: 8300000, guid: 264fb84e4651923458da5b222bc663ae, type: 3}
 --- !u!1 &5211889791345359737
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using DG.Tweening;
 
 public class Inventory : MonoBehaviour
 {    
@@ -96,6 +97,7 @@ public class Inventory : MonoBehaviour
     private void UpdateMoneyText()
     {
         moneyText.text = _moneyAmount.ToString();
+        moneyText.transform.DOShakeScale(0.2f);
     }
 
     public int GetMoneyAmount()
