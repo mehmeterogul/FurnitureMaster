@@ -21,6 +21,6 @@ MonoBehaviour:
     amount: 5
   - resource: {fileID: 11400000, guid: 2d665c81e11bc844aae11d45008ac405, type: 2}
     amount: 8
-  OrderPayment: 250
+  OrderPayment: 520
   OrderPrefab: {fileID: 4061315855586395951, guid: 4e7355c7dbdf8644a904b3409e079f27,
     type: 3}
