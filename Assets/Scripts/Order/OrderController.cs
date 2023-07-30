@@ -57,6 +57,9 @@ public class OrderController : MonoBehaviour
             case 3:
                 list = _orderList.level3OrderList;
                 break;
+            case 4:
+                list = _orderList.level3OrderList;
+                break;
         }
 
         return list;
